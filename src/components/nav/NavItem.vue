@@ -5,7 +5,9 @@
       :class="{ active }"
       :aria-current="active ? 'true': 'false'"
       :href="link"
-    >Home</a>
+    >
+      <slot/>
+    </a>
   </li>
 </template>
 <script lang="ts">

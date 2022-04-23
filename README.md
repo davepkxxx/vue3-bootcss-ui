@@ -1,5 +1,4 @@
-# UI components library for Vue 3+ and Bootstrap 5+
-
+# UI components library for Vue 3.0 and Bootstrap 5.0
 ## Scripts
 
 Init

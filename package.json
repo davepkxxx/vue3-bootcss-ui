@@ -10,6 +10,9 @@
   "private": true,
   "scripts": {
     "build": "rollup --config rollup.config.js",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:serve": "vitepress serve docs",
     "eslint": "eslint ./ --ext .js,.jsx,.ts,.tsx,.vue"
   },
   "devDependencies": {
