@@ -20,7 +20,7 @@ export default defineConfig({
           text: 'Navigation',
           children: [
             { text: 'Accordion', link: '/components/accordion' },
-            { text: 'Nav', link: '/components/nav' },
+            { text: 'Navbar', link: '/components/nav' },
           ],
         },
       ],

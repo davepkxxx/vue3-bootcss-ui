@@ -1,14 +1,12 @@
 <template>
-  <li class="nav-item">
-    <a
-      class="nav-link"
-      :class="{ active }"
-      :aria-current="active ? 'true': 'false'"
-      :href="link"
-    >
-      <slot/>
-    </a>
-  </li>
+  <component
+    :is="link && !disabled ? 'a' : 'span'"
+    class="nav-item nav-link"
+    :class="{ active, disabled }"
+    :href="link"
+  >
+    <slot/>
+  </component>
 </template>
 <script lang="ts">
 export default {
@@ -17,11 +15,12 @@ export default {
 </script>
 <script lang="ts" setup>
 defineProps({
-  link: {
-    type: String,
-    default: 'javascript:void(0)',
-  },
+  link: String,
   active: {
+    type: Boolean,
+    default: false,
+  },
+  disabled: {
     type: Boolean,
     default: false,
   },

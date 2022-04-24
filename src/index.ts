@@ -6,6 +6,7 @@ import ListGroupItem from './components/list/ListGroupItem.vue';
 import Navbar from './components/nav/Navbar.vue';
 import NavbarBrand from './components/nav/NavbarBrand.vue';
 import NavItem from './components/nav/NavItem.vue';
+import NavLogo from './components/nav/NavLogo.vue';
 
 export {
   Accordion,
@@ -15,6 +16,7 @@ export {
   Navbar,
   NavbarBrand,
   NavItem,
+  NavLogo,
 };
 
 export default {
@@ -27,6 +29,7 @@ export default {
       Navbar,
       NavbarBrand,
       NavItem,
+      NavLogo,
     ].forEach((component) => {
       app.component(component.name, component);
     });

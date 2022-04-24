@@ -1,7 +1,11 @@
 <template>
-  <a class="navbar-brand" :href="link">
+  <component
+    :is="link ? 'a' : 'span'"
+    class="navbar-brand"
+    v-bind="{ href: link }"
+  >
     <slot/>
-  </a>
+  </component>
 </template>
 <script lang="ts">
 export default {
@@ -10,9 +14,6 @@ export default {
 </script>
 <script lang="ts" setup>
 defineProps({
-  link: {
-    type: String,
-    default: 'javascript:void(0)',
-  },
+  link: String,
 });
 </script>

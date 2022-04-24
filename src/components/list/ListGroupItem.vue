@@ -3,7 +3,6 @@
     :is="linked ? 'a' : 'span'"
     class="list-group-item"
     :class="{ 'list-group-item-action': linked }"
-    :aria-current="active ? 'true': 'false'"
     v-bind="{ href: linked ? link : undefined }"
   >
     <slot/>
@@ -20,10 +19,7 @@ defineProps({
     type: Boolean,
     default: false,
   },
-  link: {
-    type: String,
-    default: 'javascript:void(0)',
-  },
+  link: String,
   active: {
     type: Boolean,
     default: false,

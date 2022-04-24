@@ -13,16 +13,14 @@
   </aside>
 </template>
 <script setup>
-import { useData } from 'vitepress';
-import { computed } from 'vue';
+import { useSidebar } from '../utils/useVitepress';
 
-const sidebar = computed(() => {
-  const { sidebar } = useData().theme.value;
-  const path = Object.getOwnPropertyNames(sidebar).find(path => location.pathname.startsWith(path));
-  return sidebar[path];
-});
+const sidebar = useSidebar();
 </script>
 <style scoped>
+aside {
+  border-right: 1px solid rgba(0,0,0,.125);
+};
 .accordion-item {
   border: 0;
 }
@@ -35,7 +33,15 @@ const sidebar = computed(() => {
 /deep/ .accordion-body {
   padding: 0;
 }
+.accordion-item,
+.list-group-item {
+  border-left: 0;
+  border-right: 0;
+}
 .list-group-item:first-child {
   border-top: 0;
+}
+.list-group-item:last-child {
+  border-bottom: 0;
 }
 </style>

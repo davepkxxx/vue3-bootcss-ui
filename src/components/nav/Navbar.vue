@@ -1,16 +1,16 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <slot name="brand"/>
     <div class="container-fluid">
+      <slot name="brand"/>
       <div class="collapse navbar-collapse">
-        <ul class="navbar-nav">
+        <div class="navbar-nav">
           <slot/>
-        </ul>
+        </div>
       </div>
     </div>
   </nav>
 </template>
-<script>
+<script lang="ts">
 export default {
   name: 'BootNavbar',
 };
