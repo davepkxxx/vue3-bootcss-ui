@@ -1,16 +1,17 @@
 <template>
   <div class="accordion-item">
-    <h2 class="accordion-header">
+    <span class="accordion-header">
       <button
         class="accordion-button"
+        :class="{ collapsed: !expanded }"
         type="button"
-        :aria-expanded="internalCollapsed ? 'false' : 'true'"
-        @click="internalCollapsed = !internalCollapsed"
+        :aria-expanded="expanded ? 'true' : 'false'"
+        @click="toggle"
       >
         <slot name="header"/>
       </button>
-    </h2>
-    <div class="accordion-collapse collapse" :class="{ show: !internalCollapsed }">
+    </span>
+    <div class="accordion-collapse collapse" :class="{ show: expanded }">
       <div class="accordion-body">
         <slot/>
       </div>
@@ -23,14 +24,33 @@ export default {
 };
 </script>
 <script lang="ts" setup>
-import { ref } from 'vue';
+import { computed } from '@vue/reactivity';
+import { inject, Ref } from 'vue';
+import { activeNamesKey, multiKey } from './model';
 
-const props = defineProps({
-  collapsed: {
-    type: Boolean,
-    default: false,
-  },
+const props = defineProps<{
+  name: string | number;
+}>();
+
+const multi = inject(multiKey) as Ref<boolean>;
+const activeNames = inject(activeNamesKey) as Ref<(number | string)[]>;
+const expanded = computed(() => activeNames.value.some((name) => name === props.name));
+
+function toggle() {
+  const index = activeNames.value.findIndex((name) => name === props.name);
+  if (index > -1) {
+    activeNames.value.splice(index, 1);
+  } else {
+    if (multi.value) {
+      activeNames.value.push(props.name);
+    } else {
+      activeNames.value = [props.name];
+    }
+  }
+}
+
+defineExpose({
+  expanded,
+  toggle,
 });
-
-const internalCollapsed = ref(props.collapsed);
 </script>

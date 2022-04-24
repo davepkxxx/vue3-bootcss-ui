@@ -1,21 +1,50 @@
 <template>
   <aside>
-    <boot-accordion>
-      <boot-accordion-item v-for="item in sidebar" :key="item.text">
-        <template v-slot:header>{{item.text}}</template>
+    <boot-accordion :active-names="activeNames">
+      <boot-accordion-item v-for="menu in menus" :key="menu.text" :name="menu.text">
+        <template v-slot:header>{{menu.text}}</template>
         <boot-list-group>
-          <boot-list-group-item v-for="child in item.children" :key="child.text" :linked="true" :link="child.link">
-            {{child.text}}
-          </boot-list-group-item>
+          <boot-list-group-item
+            v-for="child in menu.children"
+            :key="child.text"
+            :link="child.link"
+            :active="path.startsWith(child.link)"
+          >{{child.text}}</boot-list-group-item>
         </boot-list-group>
       </boot-accordion-item>
     </boot-accordion>
   </aside>
 </template>
 <script setup>
+import { useRoute } from 'vitepress';
+import { computed, ref, toRefs, watch } from 'vue';
 import { useSidebar } from '../utils/useVitepress';
 
-const sidebar = useSidebar();
+function getDefaultActiveName(menus) {
+  const names = [];
+  const current = menus.find((menu) => menu.children.some(child => location.pathname.startsWith(child.link)));
+
+  if (current) {
+    names.push(current.text);
+  }
+
+  if (!names.length && menus.length) {
+    names.push(menus[0].text);
+  }
+
+  return names;
+}
+
+const menus = useSidebar();
+const activeNames = ref(getDefaultActiveName(menus.value));
+watch(menus, value => activeNames.value = getDefaultActiveName(value));
+const path = computed(() => useRoute().path);
+
+defineExpose({
+  menus,
+  activeNames,
+  path,
+});
 </script>
 <style scoped>
 aside {
@@ -26,11 +55,11 @@ aside {
 }
 .accordion-item:first-of-type,
 .accordion-item:last-of-type,
-.accordion-item:first-of-type /deep/ .accordion-button,
+.accordion-item:first-of-type :deep(.accordion-button),
 .list-group {
   border-radius: 0;
 }
-/deep/ .accordion-body {
+:deep(.accordion-body) {
   padding: 0;
 }
 .accordion-item,

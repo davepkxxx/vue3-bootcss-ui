@@ -1,9 +1,9 @@
 <template>
   <component
-    :is="linked ? 'a' : 'span'"
+    :is="link ? 'a' : 'span'"
     class="list-group-item"
-    :class="{ 'list-group-item-action': linked }"
-    v-bind="{ href: linked ? link : undefined }"
+    :class="{ 'list-group-item-action': link, active }"
+    v-bind="{ href: link }"
   >
     <slot/>
   </component>
@@ -15,10 +15,6 @@ export default {
 </script>
 <script lang="ts" setup>
 defineProps({
-  linked: {
-    type: Boolean,
-    default: false,
-  },
   link: String,
   active: {
     type: Boolean,

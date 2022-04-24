@@ -21,6 +21,7 @@ module.exports = {
     '@typescript-eslint',
   ],
   rules: {
+    'arrow-parens': ['error', 'always'],
     'comma-dangle': ['error', 'always-multiline'],
     'eol-last': ['error', 'always'],
     indent: ['error', 2],
@@ -39,6 +40,7 @@ module.exports = {
     'vue/multi-word-component-names': ['off'],
     'vue/require-default-prop': ['off'],
     'vue/singleline-html-element-content-newline': ['off'],
+    '@typescript-eslint/no-explicit-any': ['off'],
     '@typescript-eslint/no-var-requires': ['off'],
   },
 };
