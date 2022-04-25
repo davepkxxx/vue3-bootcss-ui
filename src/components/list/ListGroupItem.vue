@@ -2,8 +2,12 @@
   <component
     :is="link ? 'a' : 'span'"
     class="list-group-item"
-    :class="{ 'list-group-item-action': link, active }"
-    v-bind="{ href: link }"
+    :class="{ 'list-group-item-action': link, active, disabled }"
+    v-bind="{
+      href: link,
+      'aria-current': active ? 'true' : undefined,
+      'aria-disabled': disabled ? 'true' : undefined,
+    }"
   >
     <slot/>
   </component>
@@ -14,11 +18,9 @@ export default {
 };
 </script>
 <script lang="ts" setup>
-defineProps({
-  link: String,
-  active: {
-    type: Boolean,
-    default: false,
-  },
-});
+defineProps<{
+  link?: string;
+  active?: boolean;
+  disabled?: boolean;
+}>();
 </script>

@@ -15,12 +15,12 @@ The ```<boot-navbar-brand>``` can be applied to ```<boot-navbar>```.
 Add your text within an ```<boot-navbar-brand>``` element.
 
 <div class="example">
-  <boot-navbar>
+  <boot-navbar class="navbar-expand-lg navbar-light bg-light">
     <template v-slot:brand>
       <boot-navbar-brand link="#">Navbar</boot-navbar-brand>
     </template>
   </boot-navbar>
-  <boot-navbar>
+  <boot-navbar class="navbar-expand-lg navbar-light bg-light">
     <template v-slot:brand>
       <boot-navbar-brand>Navbar</boot-navbar-brand>
     </template>
@@ -29,14 +29,14 @@ Add your text within an ```<boot-navbar-brand>``` element.
 
 ```html
 <!-- As a link -->
-<boot-navbar>
+<boot-navbar class="navbar-expand-lg navbar-light bg-light">
   <template v-slot:brand>
     <boot-navbar-brand link="#">Navbar</boot-navbar-brand>
   </template>
 </boot-navbar>
 
 <!-- As a heading -->
-<boot-navbar>
+<boot-navbar class="navbar-expand-lg navbar-light bg-light">
   <template v-slot:brand>
     <boot-navbar-brand>Navbar</boot-navbar-brand>
   </template>
@@ -48,7 +48,7 @@ Add your text within an ```<boot-navbar-brand>``` element.
 You can replace the text within the ```<boot-navbar-brand>``` with an ```<boot-nav-logo>```.
 
 <div class="example">
-  <boot-navbar>
+  <boot-navbar class="navbar-expand-lg navbar-light bg-light">
     <template v-slot:brand link="#">
       <boot-nav-logo src="https://getbootstrap.com/docs/5.1/assets/brand/bootstrap-logo.svg"/>
     </template>
@@ -56,7 +56,7 @@ You can replace the text within the ```<boot-navbar-brand>``` with an ```<boot-n
 </div>
 
 ```html
-<boot-navbar>
+<boot-navbar class="navbar-expand-lg navbar-light bg-light">
   <template v-slot:brand link="#">
     <boot-nav-logo src="https://getbootstrap.com/docs/5.1/assets/brand/bootstrap-logo.svg"/>
   </template>
@@ -68,7 +68,7 @@ You can replace the text within the ```<boot-navbar-brand>``` with an ```<boot-n
 You can also make use of some additional utilities to add an image and text at the same time.
 
 <div class="example">
-  <boot-navbar>
+  <boot-navbar class="navbar-expand-lg navbar-light bg-light">
     <template v-slot:brand link="#">
       <boot-nav-logo src="https://getbootstrap.com/docs/5.1/assets/brand/bootstrap-logo.svg"/>
       &nbsp;Bootstrap
@@ -77,7 +77,7 @@ You can also make use of some additional utilities to add an image and text at t
 </div>
 
 ```html
-<boot-navbar>
+<boot-navbar class="navbar-expand-lg navbar-light bg-light">
   <template v-slot:brand link="#">
     <boot-nav-logo src="https://getbootstrap.com/docs/5.1/assets/brand/bootstrap-logo.svg"/>
     &nbsp;Bootstrap
@@ -92,7 +92,7 @@ Navbar navigation links build on our ```<boot-navbar>``` element.
 Add the ```active``` attribute on ```<boot-nav-link>``` to indicate the current page.
 
 <div class="example">
-  <boot-navbar>
+  <boot-navbar class="navbar-expand-lg navbar-light bg-light">
     <template v-slot:brand>
       <boot-navbar-brand>Navbar</boot-navbar-brand>
     </template>
@@ -104,7 +104,7 @@ Add the ```active``` attribute on ```<boot-nav-link>``` to indicate the current 
 </div>
 
 ```html
-<boot-navbar>
+<boot-navbar class="navbar-expand-lg navbar-light bg-light">
   <template v-slot:brand>
     <boot-navbar-brand>Navbar</boot-navbar-brand>
   </template>

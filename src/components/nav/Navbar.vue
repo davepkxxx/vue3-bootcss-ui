@@ -1,10 +1,13 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar">
     <div class="container-fluid">
       <slot name="brand"/>
       <div class="collapse navbar-collapse">
-        <div class="navbar-nav">
+        <div class="navbar-nav me-auto">
           <slot/>
+        </div>
+        <div class="navbar-nav">
+          <slot name="right"/>
         </div>
       </div>
     </div>

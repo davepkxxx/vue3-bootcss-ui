@@ -3,7 +3,11 @@
     :is="link && !disabled ? 'a' : 'span'"
     class="nav-item nav-link"
     :class="{ active, disabled }"
-    :href="link"
+    v-bind="{
+      href: link,
+      'aria-current': active ? 'true' : undefined,
+      'aria-disabled': disabled ? 'true' : undefined,
+    }"
   >
     <slot/>
   </component>
@@ -14,15 +18,9 @@ export default {
 };
 </script>
 <script lang="ts" setup>
-defineProps({
-  link: String,
-  active: {
-    type: Boolean,
-    default: false,
-  },
-  disabled: {
-    type: Boolean,
-    default: false,
-  },
-});
+defineProps<{
+  link?: string;
+  active?: boolean;
+  disabled?: boolean;
+}>();
 </script>

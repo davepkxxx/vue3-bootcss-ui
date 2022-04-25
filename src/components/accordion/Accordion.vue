@@ -20,7 +20,6 @@ const props = withDefaults(
   }>(),
   {
     activeNames: () => [],
-    multi: false,
   },
 );
 

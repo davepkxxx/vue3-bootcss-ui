@@ -3,7 +3,7 @@
     <span class="accordion-header">
       <button
         class="accordion-button"
-        :class="{ collapsed: !expanded }"
+        :class="`${expanded ? 'collapsed' : ''} ${toggleButtonClass}`"
         type="button"
         :aria-expanded="expanded ? 'true' : 'false'"
         @click="toggle"
@@ -28,9 +28,15 @@ import { computed } from '@vue/reactivity';
 import { inject, Ref } from 'vue';
 import { activeNamesKey, multiKey } from './model';
 
-const props = defineProps<{
-  name: string | number;
-}>();
+const props = withDefaults(
+  defineProps<{
+    name: string | number;
+    toggleButtonClass?: string;
+  }>(),
+  {
+    toggleButtonClass: '',
+  },
+);
 
 const multi = inject(multiKey) as Ref<boolean>;
 const activeNames = inject(activeNamesKey) as Ref<(number | string)[]>;

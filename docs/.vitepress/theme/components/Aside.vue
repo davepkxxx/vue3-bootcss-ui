@@ -1,14 +1,20 @@
 <template>
   <aside>
     <boot-accordion :active-names="activeNames">
-      <boot-accordion-item v-for="menu in menus" :key="menu.text" :name="menu.text">
+      <boot-accordion-item
+        v-for="menu in menus"
+        :key="menu.text"
+        :name="menu.text"
+        toggle-button-class="btn d-inline-flex align-items-center rounded"
+      >
         <template v-slot:header>{{menu.text}}</template>
-        <boot-list-group>
+        <boot-list-group class="fw-normal pb-1 small">
           <boot-list-group-item
             v-for="child in menu.children"
             :key="child.text"
             :link="child.link"
             :active="path.startsWith(child.link)"
+            class="d-inline-flex align-items-center rounded"
           >{{child.text}}</boot-list-group-item>
         </boot-list-group>
       </boot-accordion-item>
@@ -48,29 +54,79 @@ defineExpose({
 </script>
 <style scoped>
 aside {
-  border-right: 1px solid rgba(0,0,0,.125);
-};
+  grid-area: sidebar;
+}
+.accordion {
+  position: sticky;
+  top: 5rem;
+  display: block !important;
+  height: calc(100vh - 7rem);
+  padding-left: 0.25rem;
+  margin-left: -0.25rem;
+  overflow: auto;
+  font-weight: 600;
+}
 .accordion-item {
+  margin-bottom: 4px;
   border: 0;
 }
-.accordion-item:first-of-type,
-.accordion-item:last-of-type,
-.accordion-item:first-of-type :deep(.accordion-button),
-.list-group {
-  border-radius: 0;
+:deep(.accordion-header) {
+  display: inline-block;
+}
+:deep(.accordion-button) {
+  padding: 0.25rem 0.5rem;
+  font-weight: 600;
+  color: rgba(0,0,0,0.85);
+  background-color: transparent;
+  border: 0;
+  box-shadow: none;
+}
+:deep(.accordion-button:focus) {
+  box-shadow: none;
+}
+:deep(.accordion-button:not(.collapsed)) {
+  color: rgba(0,0,0,0.65);
+  background-color: transparent;
+  box-shadow: none;
+}
+:deep(.accordion-button::before) {
+  width: 1.25em;
+  line-height: 0;
+  content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%280,0,0,.5%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
+  transition: transform 0.35s ease;
+  transform-origin: 0.5em 50%;
+  transform: rotate(90deg);
+}
+:deep(.accordion-button:not(.collapsed)::before) {
+  transform: 0;
+}
+:deep(.accordion-button::after) {
+  display: none;
+}
+:deep(
+  .accordion-button:hover,
+  .accordion-button:focus,
+  .list-group-item:hover,
+  .list-group-item:focus,
+) {
+  color: rgba(0,0,0,0.85);
+  background-color: rgba(121,82,179,0.1);
 }
 :deep(.accordion-body) {
   padding: 0;
 }
-.accordion-item,
 .list-group-item {
-  border-left: 0;
-  border-right: 0;
+  display: inline-block;
+  padding: 0.1875rem 0.5rem;
+  margin-top: 0.125rem;
+  margin-left: 1.25rem;
+  color: rgba(0,0,0,0.65);
+  text-decoration: none;
+  border: 0;
 }
-.list-group-item:first-child {
-  border-top: 0;
-}
-.list-group-item:last-child {
-  border-bottom: 0;
+.list-group-item.active {
+  font-weight: 600;
+  color: rgba(0,0,0,0.85);
+  background: #fff;
 }
 </style>

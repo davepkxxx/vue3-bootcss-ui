@@ -6,6 +6,6 @@ export function useSidebar() {
   return computed(() => {
     const { sidebar } = theme.value;
     const path = Object.getOwnPropertyNames(sidebar).find(path => location.pathname.startsWith(path));
-    return sidebar[path];
+    return sidebar[path] || [];
   })
 }

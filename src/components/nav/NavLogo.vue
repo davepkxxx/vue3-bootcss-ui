@@ -7,19 +7,17 @@ export default {
 };
 </script>
 <script lang="ts" setup>
-defineProps({
-  src: String,
-  alt: {
-    type: String,
-    default: 'logo',
+withDefaults(
+  defineProps<{
+    src: string;
+    alt?: string;
+    width?: string;
+    height?: string;
+  }>(),
+  {
+    alt: 'logo',
+    width: '30',
+    height: '24',
   },
-  width: {
-    type: String,
-    default: '30',
-  },
-  height: {
-    type: String,
-    default: '24',
-  },
-});
+);
 </script>

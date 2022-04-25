@@ -13,7 +13,7 @@ export default {
 };
 </script>
 <script lang="ts" setup>
-defineProps({
-  link: String,
-});
+defineProps<{
+  link: string;
+}>();
 </script>

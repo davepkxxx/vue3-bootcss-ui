@@ -13,7 +13,7 @@ export default defineConfig({
         {
           text: 'Data',
           children: [
-            { text: 'List', link: '/components/list' },
+            { text: 'List Group', link: '/components/list' },
           ],
         },
         {

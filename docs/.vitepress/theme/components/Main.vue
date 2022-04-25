@@ -1,5 +1,5 @@
 <template>
-  <main class="markdown-body">
+  <main class="order-1 markdown-body">
     <Content/>
   </main>
 </template>
@@ -15,7 +15,6 @@
 </style>
 <style scoped>
 main {
-  padding: 0 2.5rem;
-  overflow: auto;
+  grid-area: main;
 }
 </style>
