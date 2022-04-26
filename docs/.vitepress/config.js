@@ -11,15 +11,16 @@ export default defineConfig({
     sidebar: {
       '/components/': [
         {
-          text: 'Data',
+          text: 'Forms',
           children: [
-            { text: 'List Group', link: '/components/list' },
+            { text: 'Form Control', link: '/components/input' },
           ],
         },
         {
-          text: 'Navigation',
+          text: 'Components',
           children: [
             { text: 'Accordion', link: '/components/accordion' },
+            { text: 'List Group', link: '/components/list' },
             { text: 'Navbar', link: '/components/nav' },
           ],
         },

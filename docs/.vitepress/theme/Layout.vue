@@ -5,7 +5,6 @@
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
     crossorigin="anonymous"
   />
-  <link href="https://cdn.jsdelivr.net/npm/github-markdown-css@5.1.0/github-markdown.css" rel="stylesheet"/>
   <link href="https://cdn.jsdelivr.net/npm/prismjs@1.28.0/themes/prism.min.css" rel="stylesheet"/>
   <link href="https://getbootstrap.com/docs/5.1/assets/img/favicons/favicon.ico" rel="icon"/>
   <Header/>

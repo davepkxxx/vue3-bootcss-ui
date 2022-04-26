@@ -14,6 +14,6 @@ export default {
 </script>
 <script lang="ts" setup>
 defineProps<{
-  link: string;
+  link?: string;
 }>();
 </script>

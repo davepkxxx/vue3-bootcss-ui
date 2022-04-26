@@ -7,7 +7,7 @@ Init
 yarn install
 ```
 
-Build amd/umd/cjs/esm/d.ts
+Build
 
 ```sh
 yarn run build

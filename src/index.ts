@@ -1,5 +1,6 @@
 import { Plugin } from 'vue';
 import Accordion from './components/accordion/Accordion.vue';
+import Input from './components/input/Input.vue';
 import AccordionItem from './components/accordion/AccordionItem.vue';
 import ListGroup from './components/list/ListGroup.vue';
 import ListGroupItem from './components/list/ListGroupItem.vue';
@@ -11,6 +12,7 @@ import NavLogo from './components/nav/NavLogo.vue';
 export {
   Accordion,
   AccordionItem,
+  Input,
   ListGroup,
   ListGroupItem,
   Navbar,
@@ -24,6 +26,7 @@ export default {
     [
       Accordion,
       AccordionItem,
+      Input,
       ListGroup,
       ListGroupItem,
       Navbar,

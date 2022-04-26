@@ -13,6 +13,7 @@ const alwaysOpenActiveNames = ref(['#1']);
 ## Example
 
 Click the accordions below to expand/collapse the accordion content.
+
 <div class="example">
   <boot-accordion :active-names="eampleActiveNames">
     <boot-accordion-item name="#1">

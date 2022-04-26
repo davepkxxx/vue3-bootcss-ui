@@ -3,7 +3,7 @@
     <span class="accordion-header">
       <button
         class="accordion-button"
-        :class="`${expanded ? 'collapsed' : ''} ${toggleButtonClass}`"
+        :class="`${expanded ? '' : 'collapsed'} ${toggleButtonClass}`"
         type="button"
         :aria-expanded="expanded ? 'true' : 'false'"
         @click="toggle"

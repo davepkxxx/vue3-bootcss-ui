@@ -10,6 +10,6 @@ export default {
 </script>
 <script lang="ts" setup>
 defineProps<{
-  flush: boolean
+  flush?: boolean
 }>();
 </script>
