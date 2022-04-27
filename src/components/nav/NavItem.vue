@@ -7,6 +7,7 @@
       href: link,
       'aria-current': active ? 'true' : undefined,
       'aria-disabled': disabled ? 'true' : undefined,
+      'tabindex': link && disabled ? '-1' : tabindex,
     }"
   >
     <slot/>
@@ -22,5 +23,6 @@ defineProps<{
   link?: string;
   active?: boolean;
   disabled?: boolean;
+  tabindex?: string;
 }>();
 </script>

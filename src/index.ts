@@ -1,6 +1,7 @@
 import { Plugin } from 'vue';
 import Accordion from './components/accordion/Accordion.vue';
 import AccordionItem from './components/accordion/AccordionItem.vue';
+import Button from './components/button/Button.vue';
 import Check from './components/input/Check.vue';
 import CheckGroup from './components/input/CheckGroup.vue';
 import Input from './components/input/Input.vue';
@@ -14,6 +15,7 @@ import NavLogo from './components/nav/NavLogo.vue';
 export {
   Accordion,
   AccordionItem,
+  Button,
   Check,
   CheckGroup,
   Input,
@@ -30,6 +32,7 @@ export default {
     [
       Accordion,
       AccordionItem,
+      Button,
       Check,
       CheckGroup,
       Input,
