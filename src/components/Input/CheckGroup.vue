@@ -1,13 +1,14 @@
 <template>
-  <div class="form-check" :class="{ 'form-check-inline': inline }">
-    <Check
-      v-for="item in data"
-      :key="valueField == null ? item : item[valueField]"
-      :model-value="value.some(e => e === (valueField == null ? item : item[valueField]))"
-      :label="textField == null ? item : item[textField]"
-      @update:model-value="(checked) => onCheck(checked as boolean, item)"
-    />
-  </div>
+  <Check
+    v-for="item in data"
+    :key="valueField == null ? item : item[valueField]"
+    :model-value="value && value.some(e => e === (valueField == null ? item : item[valueField]))"
+    :disabled="disabled || (disabledField && item[disabledField])"
+    :switches="switches"
+    :inline="inline"
+    :label="labelField == null ? item : item[labelField]"
+    @update:model-value="(checked) => onCheck(checked as boolean, item)"
+  />
 </template>
 <script lang="ts">
 export default {
@@ -23,11 +24,15 @@ const props = withDefaults(
   defineProps<{
     modelValue?: any[];
     dataSource?: any[] | Promise<any[]>;
-    textField?: string;
+    disabledField?: string;
+    labelField?: string;
     valueField?: string;
+    disabled?: boolean;
+    switches?: boolean;
     inline?: boolean;
   }>(),
   {
+    modelValue: () => [],
     dataSource: () => [],
   },
 );
