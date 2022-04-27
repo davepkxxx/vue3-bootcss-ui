@@ -10,3 +10,10 @@ export function useSync<T extends object, E = T[keyof T]>(
   watch(data, (value) => emit(`update:${name}`, value));
   return data;
 }
+
+export function useValue<T>(
+  props: { modelValue?: T },
+  emit: (e: 'update:modelValue', value: T) => void,
+) {
+  return useSync('modelValue', props, emit);
+}

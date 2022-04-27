@@ -82,7 +82,7 @@ Create actionable list group items with hover, disabled, and active states by ad
 
 Add ```flush``` to remove some borders and rounded corners to render list group items edge-to-edge in a parent container (e.g., cards).
 
-<div class="example">
+<div class="example" style="background: rgb(248, 249, 250);">
   <boot-list-group flush>
     <boot-list-group-item>An item</boot-list-group-item>
     <boot-list-group-item>A second item</boot-list-group-item>

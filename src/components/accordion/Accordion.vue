@@ -1,5 +1,5 @@
 <template>
-  <div class="accordion">
+  <div class="accordion" :class="{ 'accordion-flush': flush }">
     <slot/>
   </div>
 </template>
@@ -17,6 +17,7 @@ const props = withDefaults(
   defineProps<{
     activeNames?: (number | string)[];
     multi?: boolean;
+    flush?: boolean;
   }>(),
   {
     activeNames: () => [],

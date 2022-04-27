@@ -6,12 +6,10 @@
     :disabled="disabled"
     :readonly="readonly"
     :multiple="multiple"
-    :class="{
-      'form-control': !plaintext,
-      'form-control-lg': size === 'lg',
-      'form-control-sm': size === 'sm',
-      'form-control-plaintext': plaintext,
-    }"
+    :class="[
+      plaintext ? 'form-control-plaintext' : 'form-control',
+      size ? `form-control-${size}` : '',
+    ]"
     v-bind="{
       'aria-disabled': disabled ? 'true' : undefined,
     }"
@@ -28,12 +26,12 @@ import { useSync } from '../../utils/useData';
 const props = withDefaults(
   defineProps<{
     modelValue?: string | number;
-    type?: 'date' | 'email' | 'file' | 'hidden' | 'month' | 'number' | 'password' | 'search' | 'tel' | 'text' | 'time' | 'url' | 'week';
+    type?: string;
     placeholder?: string;
     disabled?: boolean;
     readonly?: boolean;
     multiple?: boolean;
-    size?: 'lg' | 'sm';
+    size?: string;
     plaintext?: boolean;
   }>(),
   {
@@ -42,7 +40,7 @@ const props = withDefaults(
 );
 
 const emit = defineEmits<{
-  (e: 'update:modelValue', activeNames: number | string): void;
+  (e: 'update:modelValue', modelValue: number | string): void;
 }>();
 
 const value = useSync('modelValue', props, emit);

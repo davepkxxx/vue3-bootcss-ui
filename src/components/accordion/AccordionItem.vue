@@ -24,8 +24,7 @@ export default {
 };
 </script>
 <script lang="ts" setup>
-import { computed } from '@vue/reactivity';
-import { inject, Ref } from 'vue';
+import { computed, inject, Ref } from 'vue';
 import { activeNamesKey, multiKey } from './model';
 
 const props = withDefaults(

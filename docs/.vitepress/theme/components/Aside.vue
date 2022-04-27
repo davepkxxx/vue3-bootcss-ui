@@ -1,6 +1,6 @@
 <template>
   <aside>
-    <boot-accordion :active-names="activeNames">
+    <boot-accordion :active-names="activeNames" multi>
       <boot-accordion-item
         v-for="menu in menus"
         :key="menu.text"

@@ -29,7 +29,6 @@ const sidebar = useSidebar();
   grid-template-columns: 1fr 5fr;
 }
 aside {
-  width: 20rem;
   flex: none;
 }
 main {

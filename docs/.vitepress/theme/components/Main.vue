@@ -24,6 +24,7 @@ defineExpose({
 <style scoped>
 main {
   grid-area: main;
+  overflow-x: hidden;
 }
 :deep(.example) {
   margin-bottom: 16px;

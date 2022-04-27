@@ -1,5 +1,12 @@
 <template>
-  <nav class="navbar">
+  <nav
+    class="navbar"
+    :class="[
+      `navbar-expand-${size}`,
+      `navbar-${theme}`,
+      bg ? `bg-${bg}` : '',
+    ]"
+  >
     <div class="container-fluid">
       <slot name="brand"/>
       <div class="collapse navbar-collapse">
@@ -17,4 +24,18 @@
 export default {
   name: 'BootNavbar',
 };
+</script>
+<script lang="ts" setup>
+withDefaults(
+  defineProps<{
+    size?: string;
+    theme?: 'dark' | 'light',
+    bg?: string,
+  }>(),
+  {
+    size: 'md',
+    theme: 'light',
+    bg: 'light',
+  },
+);
 </script>
