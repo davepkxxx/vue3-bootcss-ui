@@ -16,7 +16,7 @@ export default {
 };
 </script>
 <script lang="ts" setup>
-import { useValue } from 'src/utils/useData';
+import { useDataSource, useValue } from 'src/utils/useData';
 import { Ref, ref } from 'vue';
 import Check from './Check.vue';
 
@@ -42,13 +42,7 @@ const emit = defineEmits<{
 }>();
 
 const value = useValue(props, emit);
-
-const data: Ref<any[]> = ref([]);
-if (props.dataSource instanceof Promise) {
-  props.dataSource.then((value) => data.value = value);
-} else if (Array.isArray(props.dataSource)) {
-  data.value = props.dataSource as any[];
-}
+const data: Ref<any[]> = useDataSource(props.dataSource, []);
 
 function onCheck(checked: boolean, dataItem: any) {
   const dataValue = props.valueField == null ? dataItem : dataItem[props.valueField];

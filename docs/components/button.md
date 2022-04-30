@@ -2,12 +2,6 @@
 title: Buttons
 ---
 
-<style scoped>
-.example > * {
-  margin: 0.25rem 0.125rem;
-}
-</style>
-
 # {{ $frontmatter.title }}
 
 Use Bootstrap’s custom button styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more.

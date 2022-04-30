@@ -35,7 +35,6 @@ withDefaults(
   }>(),
   {
     type: 'button',
-    theme: 'primary',
   },
 );
 </script>

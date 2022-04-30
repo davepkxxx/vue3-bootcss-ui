@@ -19,3 +19,13 @@ export function useValue<T>(
 ) {
   return useSync('modelValue', props, emit, defaultValue);
 }
+
+export function useDataSource<T>(dataSource: T | Promise<T>, defaultValue: T) {
+  const data = ref(defaultValue) as Ref<T>;
+  if (dataSource instanceof Promise) {
+    dataSource.then((value) => data.value = value);
+  } else {
+    data.value = dataSource;
+  }
+  return data;
+}

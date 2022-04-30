@@ -2,6 +2,11 @@ import { Plugin } from 'vue';
 import Accordion from './components/accordion/Accordion.vue';
 import AccordionItem from './components/accordion/AccordionItem.vue';
 import Button from './components/button/Button.vue';
+import Dropdown from './components/dropdown/Dropdown.vue';
+import DropdownDivider from './components/dropdown/DropdownDivider.vue';
+import DropdownHeader from './components/dropdown/DropdownHeader.vue';
+import DropdownItem from './components/dropdown/DropdownItem.vue';
+import DropdownMenu from './components/dropdown/DropdownMenu.vue';
 import Check from './components/input/Check.vue';
 import CheckGroup from './components/input/CheckGroup.vue';
 import Input from './components/input/Input.vue';
@@ -16,6 +21,11 @@ export {
   Accordion,
   AccordionItem,
   Button,
+  Dropdown,
+  DropdownDivider,
+  DropdownHeader,
+  DropdownItem,
+  DropdownMenu,
   Check,
   CheckGroup,
   Input,
@@ -33,6 +43,11 @@ export default {
       Accordion,
       AccordionItem,
       Button,
+      Dropdown,
+      DropdownDivider,
+      DropdownHeader,
+      DropdownItem,
+      DropdownMenu,
       Check,
       CheckGroup,
       Input,

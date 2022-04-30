@@ -3,7 +3,6 @@ import { defineConfig } from 'vitepress';
 export default defineConfig({
   title: 'Bootstrap UI',
   themeConfig: {
-    logo: 'https://getbootstrap.com/docs/5.1/assets/brand/bootstrap-logo.svg',
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Components', link: '/components/' },
@@ -22,6 +21,7 @@ export default defineConfig({
           children: [
             { text: 'Accordion', link: '/components/accordion' },
             { text: 'Buttons', link: '/components/button' },
+            { text: 'Dropdowns', link: '/components/dropdown' },
             { text: 'List Group', link: '/components/list' },
             { text: 'Navbar', link: '/components/nav' },
           ],

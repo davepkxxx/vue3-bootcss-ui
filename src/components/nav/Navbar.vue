@@ -29,13 +29,11 @@ export default {
 withDefaults(
   defineProps<{
     size?: string;
-    theme?: 'dark' | 'light',
+    theme?: string,
     bg?: string,
   }>(),
   {
     size: 'md',
-    theme: 'light',
-    bg: 'light',
   },
 );
 </script>

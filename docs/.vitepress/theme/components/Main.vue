@@ -1,5 +1,5 @@
 <template>
-  <main ref="main" class="order-1">
+  <main ref="mainEl" class="order-1">
     <Content/>
   </main>
 </template>
@@ -7,18 +7,18 @@
 import { useRoute } from 'vitepress';
 import { nextTick, onMounted, onUpdated, ref, toRefs, watch } from 'vue';
 
-const main = ref();
+const mainEl = ref();
 
 async function addMarkdownClass() {
   await nextTick();
-  main.value.querySelector('div > div').classList.add('markdown-body');
+  mainEl.value.querySelector('div > div').classList.add('markdown-body');
 }
 
 onMounted(addMarkdownClass);
 watch(useRoute(), addMarkdownClass);
 
 defineExpose({
-  main,
+  mainEl,
 });
 </script>
 <style scoped>
@@ -27,11 +27,11 @@ main {
   overflow-x: hidden;
 }
 :deep(.example) {
-  margin-bottom: 16px;
+  margin-bottom: 8px ;
   padding: 1.5rem;
   border: 1px solid #dee2e6;
 }
-:deep(.example > *+*) {
-  margin-top: 1rem;
+:deep(.example > *) {
+  margin: 0.25rem 0.125rem;
 }
 </style>

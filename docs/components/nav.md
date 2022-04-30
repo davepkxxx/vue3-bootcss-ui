@@ -138,7 +138,7 @@ Theming the navbar has never been easier thanks to the combination of theming cl
     <boot-nav-item link="#">Pricing</boot-nav-item>
     <boot-nav-item link="#">About</boot-nav-item>
   </boot-navbar>
-  <boot-navbar bg="" style="background-color: #e3f2fd;">
+  <boot-navbar style="background-color: #e3f2fd;">
     <template v-slot:brand>
       <boot-navbar-brand>Navbar</boot-navbar-brand>
     </template>
@@ -168,7 +168,7 @@ Theming the navbar has never been easier thanks to the combination of theming cl
   <boot-nav-item link="#">Pricing</boot-nav-item>
   <boot-nav-item link="#">About</boot-nav-item>
 </boot-navbar>
-<boot-navbar bg="" style="background-color: #e3f2fd;">
+<boot-navbar style="background-color: #e3f2fd;">
   <template v-slot:brand>
     <boot-navbar-brand>Navbar</boot-navbar-brand>
   </template>
