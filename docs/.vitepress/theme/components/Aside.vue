@@ -23,7 +23,7 @@
 </template>
 <script setup>
 import { useRoute } from 'vitepress';
-import { computed, ref, toRefs, watch } from 'vue';
+import { computed, ref, toRefs, unref, watch } from 'vue';
 import { useSidebar } from '../utils/useVitepress';
 
 function getDefaultActiveName(menus) {
@@ -42,7 +42,7 @@ function getDefaultActiveName(menus) {
 }
 
 const menus = useSidebar();
-const activeNames = ref(getDefaultActiveName(menus.value));
+const activeNames = ref(getDefaultActiveName(unref(menus)));
 watch(menus, value => activeNames.value = getDefaultActiveName(value));
 const path = computed(() => useRoute().path);
 

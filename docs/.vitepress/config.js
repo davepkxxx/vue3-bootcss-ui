@@ -10,6 +10,12 @@ export default defineConfig({
     sidebar: {
       '/components/': [
         {
+          text: 'Content',
+          children: [
+            { text: 'Tables', link: '/components/table' },
+          ],
+        },
+        {
           text: 'Forms',
           children: [
             { text: 'Form Control', link: '/components/input' },

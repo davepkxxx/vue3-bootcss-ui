@@ -24,7 +24,7 @@ export default {
 };
 </script>
 <script lang="ts" setup>
-import { computed, inject, Ref } from 'vue';
+import { computed, inject, Ref, unref } from 'vue';
 import { activeNamesKey, multiKey } from './model';
 
 const props = withDefaults(
@@ -39,15 +39,15 @@ const props = withDefaults(
 
 const multi = inject(multiKey) as Ref<boolean>;
 const activeNames = inject(activeNamesKey) as Ref<(number | string)[]>;
-const expanded = computed(() => activeNames.value.some((name) => name === props.name));
+const expanded = computed(() => unref(activeNames).some((name) => name === props.name));
 
 function toggle() {
-  const index = activeNames.value.findIndex((name) => name === props.name);
+  const index = unref(activeNames).findIndex((name) => name === props.name);
   if (index > -1) {
-    activeNames.value.splice(index, 1);
+    unref(activeNames).splice(index, 1);
   } else {
-    if (multi.value) {
-      activeNames.value.push(props.name);
+    if (unref(multi)) {
+      unref(activeNames).push(props.name);
     } else {
       activeNames.value = [props.name];
     }

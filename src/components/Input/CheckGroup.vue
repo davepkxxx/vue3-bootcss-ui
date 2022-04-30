@@ -17,7 +17,7 @@ export default {
 </script>
 <script lang="ts" setup>
 import { useDataSource, useValue } from 'src/utils/useData';
-import { Ref, ref } from 'vue';
+import { Ref, unref } from 'vue';
 import Check from './Check.vue';
 
 const props = withDefaults(
@@ -47,10 +47,10 @@ const data: Ref<any[]> = useDataSource(props.dataSource, []);
 function onCheck(checked: boolean, dataItem: any) {
   const dataValue = props.valueField == null ? dataItem : dataItem[props.valueField];
   if (checked) {
-    value.value.push(dataValue);
+    unref(value).push(dataValue);
   } else {
-    const start = value.value.findIndex((valueItem) => valueItem === dataValue);
-    value.value.splice(start, 1);
+    const start = unref(value).findIndex((valueItem) => valueItem === dataValue);
+    unref(value).splice(start, 1);
   }
 }
 </script>

@@ -23,10 +23,10 @@
 </template>
 <script setup>
 import { useData, useRoute } from 'vitepress';
-import { computed } from 'vue';
+import { computed, unref } from 'vue';
 
 const { title, theme } = useData();
-const { logo, nav } = theme.value;
+const { logo, nav } = unref(theme);
 const path = computed(() => useRoute().path);
 </script>
 <style scoped>

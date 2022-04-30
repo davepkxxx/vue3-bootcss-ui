@@ -16,6 +16,10 @@ import Navbar from './components/nav/Navbar.vue';
 import NavbarBrand from './components/nav/NavbarBrand.vue';
 import NavItem from './components/nav/NavItem.vue';
 import NavLogo from './components/nav/NavLogo.vue';
+import Table from './components/table/Table.vue';
+import TableBody from './components/table/TableBody.vue';
+import TableCol from './components/table/TableCol.vue';
+import TableHead from './components/table/TableHead.vue';
 
 export {
   Accordion,
@@ -35,6 +39,10 @@ export {
   NavbarBrand,
   NavItem,
   NavLogo,
+  Table,
+  TableBody,
+  TableCol,
+  TableHead,
 };
 
 export default {
@@ -57,6 +65,10 @@ export default {
       NavbarBrand,
       NavItem,
       NavLogo,
+      Table,
+      TableBody,
+      TableCol,
+      TableHead,
     ].forEach((component) => {
       app.component(component.name, component);
     });

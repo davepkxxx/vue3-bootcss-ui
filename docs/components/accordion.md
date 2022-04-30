@@ -2,11 +2,16 @@
 title: Accordion
 ---
 
-<script setup>
-import { ref } from 'vue';
-const eampleActiveNames = ref(['headingOne']);
-const flushActiveNames = ref(['flush-headingOne']);
-const alwaysOpenActiveNames = ref(['panelsStayOpen-headingOne']);
+<script>
+export default {
+  data() {
+    return {
+      eampleActiveNames: ['headingOne'],
+      flushActiveNames: ['flush-headingOne'],
+      alwaysOpenActiveNames: ['panelsStayOpen-headingOne'],
+    };
+  },
+};
 </script>
 
 # {{ $frontmatter.title }}
@@ -49,9 +54,14 @@ Click the accordions below to expand/collapse the accordion content.
     </boot-accordion-item>
   </boot-accordion>
 </template>
-<script setup>
-import { ref } from 'vue';
-const activeNames = ref(['headingOne']);
+<script>
+export default {
+  data() {
+    return {
+      activeNames: ['headingOne'],
+    };
+  },
+};
 </script>
 ```
 
@@ -93,10 +103,14 @@ Add ```flush``` boolean attribute to remove the default background-color, some b
     </boot-accordion-item>
   </boot-accordion>
 </template>
-<script setup>
-import { ref } from 'vue';
-const activeNames = ref(['flush-headingOne']);
-</script>
+<script>
+export default {
+  data() {
+    return {
+      activeNames: ['flush-headingOne'],
+    };
+  },
+};
 ```
 
 ## Always open
@@ -137,8 +151,13 @@ Add the ```multi``` boolean attribute on ```<boot-accordion>``` to make accordio
     </boot-accordion-item>
   </boot-accordion>
 </template>
-<script setup>
-import { ref } from 'vue';
-const activeNames = ref(['panelsStayOpen-headingOne']);
+<script>
+export default {
+  data() {
+    return {
+      activeNames: ['panelsStayOpen-headingOne'],
+    };
+  },
+};
 </script>
 ```

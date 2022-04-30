@@ -5,13 +5,13 @@
 </template>
 <script setup>
 import { useRoute } from 'vitepress';
-import { nextTick, onMounted, onUpdated, ref, toRefs, watch } from 'vue';
+import { nextTick, onMounted, onUpdated, ref, toRefs, unref, watch } from 'vue';
 
 const mainEl = ref();
 
 async function addMarkdownClass() {
   await nextTick();
-  mainEl.value.querySelector('div > div').classList.add('markdown-body');
+  unref(mainEl).querySelector('div > div').classList.add('markdown-body');
 }
 
 onMounted(addMarkdownClass);

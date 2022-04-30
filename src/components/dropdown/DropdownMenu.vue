@@ -17,7 +17,7 @@ defineProps<{
   dark?: boolean;
 }>();
 </script>
-<style scoped>
+<style>
 .dropdown-menu {
   position: static;
   display: block;

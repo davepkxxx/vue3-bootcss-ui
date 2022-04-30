@@ -1,16 +1,10 @@
-import { Component, ComponentInternalInstance, Fragment, getCurrentInstance, VNode } from 'vue';
+import { Component, getCurrentInstance } from 'vue';
 
-export function getChildComponents(type: string, childNodes?: VNode[]) {
-  if (!childNodes) {
-    const children = getCurrentInstance()?.subTree.children;
-    childNodes = Array.isArray(children) ? children as VNode[] : [];
-  }
-  return childNodes.reduce((res, child) => {
-    if ((child.type as Component).name === type && child.component) {
-      res.push(child.component);
-    } else if (child.type === Fragment && child.children) {
-      res.push(...getChildComponents(type, child.children as VNode[]));
-    }
-    return res;
-  }, [] as ComponentInternalInstance[]);
+export function getChildNodes(slotName = 'default') {
+  const slots = getCurrentInstance()?.slots;
+  return slots && slots[slotName] ? slots[slotName]!() : [];
+}
+
+export function filterChildNodes(nodeType: string, slotName?: string) {
+  return getChildNodes(slotName).filter(({ type }) => type === nodeType || (type as Component).name === nodeType);
 }
