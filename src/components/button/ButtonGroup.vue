@@ -1,5 +1,5 @@
 <template>
-  <div class="btn-group" :class="{ 'btn-group-vertical': vertical }" role="group">
+  <div :class="vertical ? 'btn-group-vertical': 'btn-group'" role="group">
     <slot/>
   </div>
 </template>

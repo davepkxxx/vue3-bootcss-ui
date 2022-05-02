@@ -1,7 +1,8 @@
 <template>
-  <ButtonGroup v-if="toggleSplit" :class="direction === 'dropstart' ? '' : direction">
-    <div v-if="direction === 'dropstart'" class="btn-group dropstart" role="group">
+  <component :is="root" :class="direction === 'dropstart' ? '' : direction">
+    <div v-if="toggleSplit && direction === 'dropstart'" class="btn-group dropstart" role="group">
       <Button
+        :disabled="disabled"
         :theme="theme"
         :size="size"
         class="dropdown-toggle dropdown-toggle-split"
@@ -10,33 +11,25 @@
       />
     </div>
     <Button
+      :disabled="disabled"
       :theme="theme"
       :size="size"
+      class="dropdown-toggle"
       :class="mainClass"
-      @click="$emit('click')"
+      @click="$emit(toggleSplit ? 'click' : 'toggle')"
     >
       <slot/>
     </Button>
     <Button
       v-if="toggleSplit && direction !== 'dropstart'"
+      :disabled="disabled"
       :theme="theme"
       :size="size"
       class="dropdown-toggle dropdown-toggle-split"
       :class="mainClass"
       @click="$emit('toggle')"
     />
-  </ButtonGroup>
-  <div v-else class="dropdown">
-    <Button
-      :theme="theme"
-      :size="size"
-      class="dropdown-toggle"
-      :class="mainClass"
-      @click="$emit('toggle')"
-    >
-      <slot/>
-    </Button>
-  </div>
+  </component>
 </template>
 <script lang="ts">
 export default {
@@ -47,7 +40,7 @@ export default {
 import Button from '../button/Button.vue';
 import ButtonGroup from '../button/ButtonGroup.vue';
 
-withDefaults(
+const props = withDefaults(
   defineProps<{
     direction?: string;
     toggleSplit?: boolean;
@@ -55,6 +48,7 @@ withDefaults(
     theme?: string;
     mainClass?: string;
     size?: string;
+    group?: boolean;
   }>(),
   {
     direction: 'dropdown',
@@ -66,4 +60,6 @@ defineEmits<{
   (e: 'click'): void;
   (e: 'toggle'): void;
 }>();
+
+const root = props.toggleSplit || props.group ? ButtonGroup : 'div';
 </script>

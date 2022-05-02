@@ -27,6 +27,7 @@ export default defineConfig({
           children: [
             { text: 'Accordion', link: '/components/accordion' },
             { text: 'Buttons', link: '/components/button' },
+            { text: 'Button Group', link: '/components/button-group' },
             { text: 'Dropdowns', link: '/components/dropdown' },
             { text: 'List Group', link: '/components/list' },
             { text: 'Navbar', link: '/components/nav' },

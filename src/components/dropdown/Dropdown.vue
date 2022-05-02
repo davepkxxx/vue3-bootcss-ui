@@ -8,14 +8,17 @@
     :theme="theme"
     :main-class="buttonClass"
     :size="size"
+    :group="group"
+    :aria-expanded="expanded"
+    v-bind="$attrs"
     @click="$emit('click')"
     @toggle="expanded = !expanded"
   >
     <slot/>
-    <Popper :popped="expanded" :reference-ref="triggerRef" :options="popperOptions">
-      <slot name="menu"/>
-    </Popper>
   </DropdownButton>
+  <Popper :popped="expanded" :reference-ref="triggerRef" :options="popperOptions">
+    <slot name="menu"/>
+  </Popper>
 </template>
 <script lang="ts">
 export default {
@@ -37,6 +40,7 @@ const props = withDefaults(
     theme?: string;
     buttonClass?: string;
     size?: string;
+    group?: boolean;
     placement?: string;
   }>(),
   {

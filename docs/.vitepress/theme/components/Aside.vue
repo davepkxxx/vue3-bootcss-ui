@@ -13,7 +13,7 @@
             v-for="child in menu.children"
             :key="child.text"
             :link="child.link"
-            :active="path.startsWith(child.link)"
+            :active="path === child.link + '.html'"
             class="d-inline-flex align-items-center rounded"
           >{{child.text}}</boot-list-group-item>
         </boot-list-group>
