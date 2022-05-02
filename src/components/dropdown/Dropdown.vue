@@ -1,50 +1,21 @@
 <template>
-  <div
-    ref="triggerEl"
+  <DropdownButton
+    ref="triggerRef"
     v-click-outside="() => expanded = false"
-    class="btn-group"
-    :class="toggleSplit && direction === 'dropstart' ? '' : direction"
+    :direction="direction"
+    :toggle-split="toggleSplit"
+    :disabled="disabled"
+    :theme="theme"
+    :main-class="buttonClass"
+    :size="size"
+    @click="$emit('click')"
+    @toggle="expanded = !expanded"
   >
-    <div
-      v-if="toggleSplit && direction === 'dropstart'"
-      class="btn-group dropstart" role="group"
-    >
-      <Button
-        :theme="theme"
-        :size="size"
-        :aria-expanded="expanded"
-        class="dropdown-toggle dropdown-toggle-split"
-        :class="buttonClass"
-        @click="expanded = !expanded"
-      />
-    </div>
-    <Button
-      :theme="theme"
-      :size="size"
-      :class="[
-        toggleSplit ? '' : 'dropdown-toggle',
-        buttonClass,
-      ]"
-      v-bind="{ 'aria-expanded': toggleSplit ? undefined : expanded }"
-      @click="onClick"
-    >
-      <slot/>
-    </Button>
-    <Button
-      v-if="toggleSplit && direction !== 'dropstart'"
-      :theme="theme"
-      :size="size"
-      :aria-expanded="expanded"
-      class="dropdown-toggle dropdown-toggle-split"
-      :class="buttonClass"
-      @click="expanded = !expanded"
-    />
-    <teleport to="body">
-      <div v-show="expanded" ref="menuEl" :style="{ zIndex }" @click="expanded = false">
-        <slot name="menu"/>
-      </div>
-    </teleport>
-  </div>
+    <slot/>
+    <Popper :popped="expanded" :reference-ref="triggerRef" :options="popperOptions">
+      <slot name="menu"/>
+    </Popper>
+  </DropdownButton>
 </template>
 <script lang="ts">
 export default {
@@ -52,11 +23,11 @@ export default {
 };
 </script>
 <script lang="ts" setup>
-import { createPopper, Instance, Placement } from '@popperjs/core';
-import { onMounted, Ref, ref, unref, watch } from 'vue';
+import { Placement } from '@popperjs/core';
+import { ComponentPublicInstance, Ref, ref } from 'vue';
 import vClickOutside from '../../directives/ClickOutside';
-import { nextZIndex } from '../../utils/style';
-import Button from '../button/Button.vue';
+import Popper from '../popper/Popper.vue';
+import DropdownButton from './DropdownButton.vue';
 
 const props = withDefaults(
   defineProps<{
@@ -67,52 +38,24 @@ const props = withDefaults(
     buttonClass?: string;
     size?: string;
     placement?: string;
-    darkMenu?: boolean;
   }>(),
   {
-    direction: 'dropdown',
-    buttonClass: '',
     placement: 'bottom-start',
   },
 );
 
-const emit = defineEmits<{
+defineEmits<{
   (e: 'click'): void;
 }>();
 
-const triggerEl: Ref<HTMLDivElement | undefined> = ref();
-const menuEl: Ref<HTMLDivElement | undefined> = ref();
+const triggerRef = ref() as Ref<ComponentPublicInstance | undefined>;
 const expanded = ref(false);
-const zIndex = ref(unref(expanded) ? nextZIndex() : 0);
-let popper: Instance;
-
-onMounted(() => {
-  const [trigger, menu] = [unref(triggerEl), unref(menuEl)];
-  if (trigger && menu) {
-    const { placement } = props;
-    popper = createPopper(trigger, menu, {
-      placement: placement as Placement,
-    });
-  }
-});
-
-watch(expanded, (value) => {
-  if (value) {
-    popper.update();
-    zIndex.value = nextZIndex();
-  }
-});
-
-function onClick() {
-  if (!props.toggleSplit) {
-    expanded.value = !unref(expanded);
-  }
-  emit('click');
-}
+const popperOptions = { placement: props.placement as Placement };
 
 defineExpose({
-  triggerEl,
-  menuEl,
+  triggerRef,
+  expanded,
   vClickOutside,
+  popperOptions,
 });
 </script>

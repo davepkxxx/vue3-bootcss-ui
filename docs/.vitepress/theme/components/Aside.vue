@@ -7,7 +7,7 @@
         :name="menu.text"
         toggle-button-class="btn d-inline-flex align-items-center rounded"
       >
-        <template v-slot:header>{{menu.text}}</template>
+        <template #header>{{menu.text}}</template>
         <boot-list-group class="fw-normal pb-1 small">
           <boot-list-group-item
             v-for="child in menu.children"

@@ -13,7 +13,7 @@ Toggle contextual overlays for displaying lists of links and more with the Boots
 <div class="example">
   <boot-dropdown theme="secondary">
     Dropdown button
-    <template v-slot:menu>
+    <template #menu>
       <boot-dropdown-menu>
         <boot-dropdown-item link="#">Action</boot-dropdown-item>
         <boot-dropdown-item link="#">Another action</boot-dropdown-item>
@@ -26,7 +26,7 @@ Toggle contextual overlays for displaying lists of links and more with the Boots
 ```html
 <boot-dropdown theme="secondary">
   Dropdown button
-  <template v-slot:menu>
+  <template #menu>
     <boot-dropdown-menu>
       <boot-dropdown-item link="#">Action</boot-dropdown-item>
       <boot-dropdown-item link="#">Another action</boot-dropdown-item>
@@ -41,7 +41,7 @@ The best part is you can do this with any button variant, too:
 <div class="example">
   <boot-dropdown theme="primary">
     Dropdown button
-    <template v-slot:menu>
+    <template #menu>
       <boot-dropdown-menu>
         <boot-dropdown-item link="#">Action</boot-dropdown-item>
         <boot-dropdown-item link="#">Another action</boot-dropdown-item>
@@ -53,7 +53,7 @@ The best part is you can do this with any button variant, too:
   </boot-dropdown>
   <boot-dropdown theme="secondary">
     Dropdown button
-    <template v-slot:menu>
+    <template #menu>
       <boot-dropdown-menu>
         <boot-dropdown-item link="#">Action</boot-dropdown-item>
         <boot-dropdown-item link="#">Another action</boot-dropdown-item>
@@ -65,7 +65,7 @@ The best part is you can do this with any button variant, too:
   </boot-dropdown>
   <boot-dropdown theme="success">
     Dropdown button
-    <template v-slot:menu>
+    <template #menu>
       <boot-dropdown-menu>
         <boot-dropdown-item link="#">Action</boot-dropdown-item>
         <boot-dropdown-item link="#">Another action</boot-dropdown-item>
@@ -77,7 +77,7 @@ The best part is you can do this with any button variant, too:
   </boot-dropdown>
   <boot-dropdown theme="info">
     Dropdown button
-    <template v-slot:menu>
+    <template #menu>
       <boot-dropdown-menu>
         <boot-dropdown-item link="#">Action</boot-dropdown-item>
         <boot-dropdown-item link="#">Another action</boot-dropdown-item>
@@ -89,7 +89,7 @@ The best part is you can do this with any button variant, too:
   </boot-dropdown>
   <boot-dropdown theme="warning">
     Dropdown button
-    <template v-slot:menu>
+    <template #menu>
       <boot-dropdown-menu>
         <boot-dropdown-item link="#">Action</boot-dropdown-item>
         <boot-dropdown-item link="#">Another action</boot-dropdown-item>
@@ -101,7 +101,7 @@ The best part is you can do this with any button variant, too:
   </boot-dropdown>
   <boot-dropdown theme="danger">
     Dropdown button
-    <template v-slot:menu>
+    <template #menu>
       <boot-dropdown-menu>
         <boot-dropdown-item link="#">Action</boot-dropdown-item>
         <boot-dropdown-item link="#">Another action</boot-dropdown-item>
@@ -117,7 +117,7 @@ The best part is you can do this with any button variant, too:
 <!-- Example single danger button -->
 <boot-dropdown theme="danger">
   Dropdown button
-  <template v-slot:menu>
+  <template #menu>
     <boot-dropdown-menu>
       <boot-dropdown-item link="#">Action</boot-dropdown-item>
       <boot-dropdown-item link="#">Another action</boot-dropdown-item>
@@ -137,7 +137,7 @@ Similarly, create split button dropdowns with virtually the same markup as singl
 <div class="example">
   <boot-dropdown theme="primary" toggle-split>
     Dropdown button
-    <template v-slot:menu>
+    <template #menu>
       <boot-dropdown-menu>
         <boot-dropdown-item link="#">Action</boot-dropdown-item>
         <boot-dropdown-item link="#">Another action</boot-dropdown-item>
@@ -149,7 +149,7 @@ Similarly, create split button dropdowns with virtually the same markup as singl
   </boot-dropdown>
   <boot-dropdown theme="secondary" toggle-split>
     Dropdown button
-    <template v-slot:menu>
+    <template #menu>
       <boot-dropdown-menu>
         <boot-dropdown-item link="#">Action</boot-dropdown-item>
         <boot-dropdown-item link="#">Another action</boot-dropdown-item>
@@ -161,7 +161,7 @@ Similarly, create split button dropdowns with virtually the same markup as singl
   </boot-dropdown>
   <boot-dropdown theme="success" toggle-split>
     Dropdown button
-    <template v-slot:menu>
+    <template #menu>
       <boot-dropdown-menu>
         <boot-dropdown-item link="#">Action</boot-dropdown-item>
         <boot-dropdown-item link="#">Another action</boot-dropdown-item>
@@ -173,7 +173,7 @@ Similarly, create split button dropdowns with virtually the same markup as singl
   </boot-dropdown>
   <boot-dropdown theme="info" toggle-split>
     Dropdown button
-    <template v-slot:menu>
+    <template #menu>
       <boot-dropdown-menu>
         <boot-dropdown-item link="#">Action</boot-dropdown-item>
         <boot-dropdown-item link="#">Another action</boot-dropdown-item>
@@ -185,7 +185,7 @@ Similarly, create split button dropdowns with virtually the same markup as singl
   </boot-dropdown>
   <boot-dropdown theme="warning" toggle-split>
     Dropdown button
-    <template v-slot:menu>
+    <template #menu>
       <boot-dropdown-menu>
         <boot-dropdown-item link="#">Action</boot-dropdown-item>
         <boot-dropdown-item link="#">Another action</boot-dropdown-item>
@@ -197,7 +197,7 @@ Similarly, create split button dropdowns with virtually the same markup as singl
   </boot-dropdown>
   <boot-dropdown theme="danger" toggle-split>
     Dropdown button
-    <template v-slot:menu>
+    <template #menu>
       <boot-dropdown-menu>
         <boot-dropdown-item link="#">Action</boot-dropdown-item>
         <boot-dropdown-item link="#">Another action</boot-dropdown-item>
@@ -213,7 +213,7 @@ Similarly, create split button dropdowns with virtually the same markup as singl
 <!-- Example split danger button -->
 <boot-dropdown theme="danger" toggle-split>
   Dropdown button
-  <template v-slot:menu>
+  <template #menu>
     <boot-dropdown-menu>
       <boot-dropdown-item link="#">Action</boot-dropdown-item>
       <boot-dropdown-item link="#">Another action</boot-dropdown-item>
@@ -232,7 +232,7 @@ Button dropdowns work with buttons of all sizes, including default and split dro
 <div class="example">
   <boot-dropdown theme="secondary" size="lg">
     Large button
-    <template v-slot:menu>
+    <template #menu>
       <boot-dropdown-menu>
         <boot-dropdown-item link="#">Action</boot-dropdown-item>
         <boot-dropdown-item link="#">Another action</boot-dropdown-item>
@@ -242,9 +242,9 @@ Button dropdowns work with buttons of all sizes, including default and split dro
       </boot-dropdown-menu>
     </template>
   </boot-dropdown>
-  <boot-dropdown theme="secondary" size="lg">
+  <boot-dropdown theme="secondary" size="lg" toggle-split>
     Large split button
-    <template v-slot:menu>
+    <template #menu>
       <boot-dropdown-menu>
         <boot-dropdown-item link="#">Action</boot-dropdown-item>
         <boot-dropdown-item link="#">Another action</boot-dropdown-item>
@@ -260,15 +260,15 @@ Button dropdowns work with buttons of all sizes, including default and split dro
 <!-- Large button groups (default and split) -->
 <boot-dropdown theme="secondary" size="lg">
   Large button
-  <template v-slot:menu>
+  <template #menu>
     <boot-dropdown-menu>
     ...
     </boot-dropdown-menu>
   </template>
 </boot-dropdown>
-<boot-dropdown theme="secondary" size="lg">
+<boot-dropdown theme="secondary" size="lg" toggle-split>
   Large split button
-  <template v-slot:menu>
+  <template #menu>
     <boot-dropdown-menu>
     ...
     </boot-dropdown-menu>
@@ -279,7 +279,7 @@ Button dropdowns work with buttons of all sizes, including default and split dro
 <div class="example">
   <boot-dropdown theme="secondary" size="sm">
     Large button
-    <template v-slot:menu>
+    <template #menu>
       <boot-dropdown-menu>
         <boot-dropdown-item link="#">Action</boot-dropdown-item>
         <boot-dropdown-item link="#">Another action</boot-dropdown-item>
@@ -289,9 +289,9 @@ Button dropdowns work with buttons of all sizes, including default and split dro
       </boot-dropdown-menu>
     </template>
   </boot-dropdown>
-  <boot-dropdown theme="secondary" size="sm">
+  <boot-dropdown theme="secondary" size="sm" toggle-split>
     Large split button
-    <template v-slot:menu>
+    <template #menu>
       <boot-dropdown-menu>
         <boot-dropdown-item link="#">Action</boot-dropdown-item>
         <boot-dropdown-item link="#">Another action</boot-dropdown-item>
@@ -306,15 +306,15 @@ Button dropdowns work with buttons of all sizes, including default and split dro
 ```html
 <boot-dropdown theme="secondary" size="sm">
   Small button
-  <template v-slot:menu>
+  <template #menu>
     <boot-dropdown-menu>
     ...
     </boot-dropdown-menu>
   </template>
 </boot-dropdown>
-<boot-dropdown theme="secondary" size="sm">
+<boot-dropdown theme="secondary" size="sm" toggle-split>
   Small split button
-  <template v-slot:menu>
+  <template #menu>
     <boot-dropdown-menu>
     ...
     </boot-dropdown-menu>
@@ -329,7 +329,7 @@ Opt into darker dropdowns to match a dark navbar or custom style by adding ```da
 <div class="example">
   <boot-dropdown theme="secondary" dark-menu>
     Dropdown button
-    <template v-slot:menu>
+    <template #menu>
       <boot-dropdown-menu>
         <boot-dropdown-item link="#" active>Action</boot-dropdown-item>
         <boot-dropdown-item link="#">Another action</boot-dropdown-item>
@@ -344,7 +344,7 @@ Opt into darker dropdowns to match a dark navbar or custom style by adding ```da
 ```html
 <boot-dropdown theme="secondary" dark-menu>
   Dropdown button
-  <template v-slot:menu>
+  <template #menu>
     <boot-dropdown-menu>
       <boot-dropdown-item link="#" active>Action</boot-dropdown-item>
       <boot-dropdown-item link="#">Another action</boot-dropdown-item>
@@ -360,42 +360,37 @@ And putting it to use in a navbar:
 
 <div class="example">
   <boot-navbar theme="dark" bg="dark" size="lg">
-    <template v-slot:brand>
+    <template #brand>
       <boot-navbar-brand link="#">Navbar</boot-navbar-brand>
     </template>
-    <boot-nav-item>
-      <boot-dropdown dark-menu button-class="nav-link">
-        Dropdown
-        <template v-slot:menu>
-          <boot-dropdown-menu>
-            <boot-dropdown-item link="#">Action</boot-dropdown-item>
-            <boot-dropdown-item link="#">Another action</boot-dropdown-item>
-            <boot-dropdown-item link="#">Something else here</boot-dropdown-item>
-          </boot-dropdown-menu>
-        </template>
-      </boot-dropdown>
-    </boot-nav-item>
-  </boot-navbar>
-</div>
-
-```html
-<boot-navbar theme="dark" bg="dark" size="lg">
-  <template v-slot:brand>
-    <boot-navbar-brand link="#">Navbar</boot-navbar-brand>
-    </boot-dropdown-menu>
-  </template>
-  <boot-nav-item>
-    <boot-dropdown dark-menu button-class="nav-link">
+    <boot-nav-item-dropdown>
       Dropdown
-      <template v-slot:menu>
-        <boot-dropdown-menu>
+      <template #menu>
+        <boot-dropdown-menu dark>
           <boot-dropdown-item link="#">Action</boot-dropdown-item>
           <boot-dropdown-item link="#">Another action</boot-dropdown-item>
           <boot-dropdown-item link="#">Something else here</boot-dropdown-item>
         </boot-dropdown-menu>
       </template>
-    </boot-dropdown>
-  </boot-nav-item>
+    </boot-nav-item-dropdown>
+  </boot-navbar>
+</div>
+
+```html
+<boot-navbar theme="dark" bg="dark" size="lg">
+  <template #brand>
+    <boot-navbar-brand link="#">Navbar</boot-navbar-brand>
+  </template>
+  <boot-nav-item-dropdown>
+    Dropdown
+    <template #menu>
+      <boot-dropdown-menu dark>
+        <boot-dropdown-item link="#">Action</boot-dropdown-item>
+        <boot-dropdown-item link="#">Another action</boot-dropdown-item>
+        <boot-dropdown-item link="#">Something else here</boot-dropdown-item>
+      </boot-dropdown-menu>
+    </template>
+  </boot-nav-item-dropdown>
 </boot-navbar>
 ```
 
@@ -408,7 +403,7 @@ Trigger dropdown menus above elements by adding ```dropup``` to the ```direction
 <div class="example">
   <boot-dropdown direction="dropup" placement="top-start" theme="secondary">
     Dropup
-    <template v-slot:menu>
+    <template #menu>
       <boot-dropdown-menu>
         <boot-dropdown-item link="#">Action</boot-dropdown-item>
         <boot-dropdown-item link="#">Another action</boot-dropdown-item>
@@ -420,7 +415,7 @@ Trigger dropdown menus above elements by adding ```dropup``` to the ```direction
   </boot-dropdown>
   <boot-dropdown direction="dropup" placement="top-start" theme="secondary" toggle-split>
     Split dropup
-    <template v-slot:menu>
+    <template #menu>
       <boot-dropdown-menu>
         <boot-dropdown-item link="#">Action</boot-dropdown-item>
         <boot-dropdown-item link="#">Another action</boot-dropdown-item>
@@ -435,7 +430,7 @@ Trigger dropdown menus above elements by adding ```dropup``` to the ```direction
 ```html
 <boot-dropdown direction="dropup" placement="top-start" theme="secondary">
   Dropup
-  <template v-slot:menu>
+  <template #menu>
     <boot-dropdown-menu>
       <boot-dropdown-item link="#">Action</boot-dropdown-item>
       <boot-dropdown-item link="#">Another action</boot-dropdown-item>
@@ -447,7 +442,7 @@ Trigger dropdown menus above elements by adding ```dropup``` to the ```direction
 </boot-dropdown>
 <boot-dropdown direction="dropup" placement="top-start" theme="secondary" toggle-split>
   Split dropup
-  <template v-slot:menu>
+  <template #menu>
     <boot-dropdown-menu>
       <boot-dropdown-item link="#">Action</boot-dropdown-item>
       <boot-dropdown-item link="#">Another action</boot-dropdown-item>
@@ -466,7 +461,7 @@ Trigger dropdown menus at the right of the elements by adding ```dropend``` to t
 <div class="example">
   <boot-dropdown direction="dropright" placement="right-start" theme="secondary">
     Dropright
-    <template v-slot:menu>
+    <template #menu>
       <boot-dropdown-menu>
         <boot-dropdown-item link="#">Action</boot-dropdown-item>
         <boot-dropdown-item link="#">Another action</boot-dropdown-item>
@@ -478,7 +473,7 @@ Trigger dropdown menus at the right of the elements by adding ```dropend``` to t
   </boot-dropdown>
   <boot-dropdown direction="dropright" placement="right-start" theme="secondary" toggle-split>
     Split dropright
-    <template v-slot:menu>
+    <template #menu>
       <boot-dropdown-menu>
         <boot-dropdown-item link="#">Action</boot-dropdown-item>
         <boot-dropdown-item link="#">Another action</boot-dropdown-item>
@@ -493,7 +488,7 @@ Trigger dropdown menus at the right of the elements by adding ```dropend``` to t
 ```html
 <boot-dropdown direction="dropright" placement="right-start" theme="secondary">
   Dropright
-  <template v-slot:menu>
+  <template #menu>
     <boot-dropdown-menu>
       <boot-dropdown-item link="#">Action</boot-dropdown-item>
       <boot-dropdown-item link="#">Another action</boot-dropdown-item>
@@ -505,7 +500,7 @@ Trigger dropdown menus at the right of the elements by adding ```dropend``` to t
 </boot-dropdown>
 <boot-dropdown direction="dropright" placement="right-start" theme="secondary" toggle-split>
   Split dropright
-  <template v-slot:menu>
+  <template #menu>
     <boot-dropdown-menu>
       <boot-dropdown-item link="#">Action</boot-dropdown-item>
       <boot-dropdown-item link="#">Another action</boot-dropdown-item>
@@ -524,7 +519,7 @@ Trigger dropdown menus at the right of the elements by adding ```dropstart``` to
 <div class="example">
   <boot-dropdown direction="dropstart" placement="left-start" theme="secondary">
     Dropstart
-    <template v-slot:menu>
+    <template #menu>
       <boot-dropdown-menu>
         <boot-dropdown-item link="#">Action</boot-dropdown-item>
         <boot-dropdown-item link="#">Another action</boot-dropdown-item>
@@ -536,7 +531,7 @@ Trigger dropdown menus at the right of the elements by adding ```dropstart``` to
   </boot-dropdown>
   <boot-dropdown direction="dropstart" placement="left-start" theme="secondary" toggle-split>
     Split dropstart
-    <template v-slot:menu>
+    <template #menu>
       <boot-dropdown-menu>
         <boot-dropdown-item link="#">Action</boot-dropdown-item>
         <boot-dropdown-item link="#">Another action</boot-dropdown-item>
@@ -551,7 +546,7 @@ Trigger dropdown menus at the right of the elements by adding ```dropstart``` to
 ```html
 <boot-dropdown direction="dropstart" placement="left-start" theme="secondary">
   Dropstart
-  <template v-slot:menu>
+  <template #menu>
     <boot-dropdown-menu>
       <boot-dropdown-item link="#">Action</boot-dropdown-item>
       <boot-dropdown-item link="#">Another action</boot-dropdown-item>
@@ -563,7 +558,7 @@ Trigger dropdown menus at the right of the elements by adding ```dropstart``` to
 </boot-dropdown>
 <boot-dropdown direction="dropstart" placement="left-start" theme="secondary" toggle-split>
   Split dropstart
-  <template v-slot:menu>
+  <template #menu>
     <boot-dropdown-menu>
       <boot-dropdown-item link="#">Action</boot-dropdown-item>
       <boot-dropdown-item link="#">Another action</boot-dropdown-item>
@@ -582,7 +577,7 @@ You can use ```<a>``` or ```<button>``` elements as dropdown items.
 <div class="example">
   <boot-dropdown theme="secondary">
     Dropdown
-    <template v-slot:menu>
+    <template #menu>
       <boot-dropdown-menu>
         <boot-dropdown-item>Action</boot-dropdown-item>
         <boot-dropdown-item>Another action</boot-dropdown-item>
@@ -595,7 +590,7 @@ You can use ```<a>``` or ```<button>``` elements as dropdown items.
 ```html
 <boot-dropdown theme="secondary">
   Dropdown
-  <template v-slot:menu>
+  <template #menu>
     <boot-dropdown-menu>
       <boot-dropdown-item>Action</boot-dropdown-item>
       <boot-dropdown-item>Another action</boot-dropdown-item>
@@ -654,7 +649,7 @@ Add ```bottom-end``` to the ```placement``` attribute to right align the dropdow
 <div class="example">
   <boot-dropdown placement="bottom-end" theme="secondary">
     Right-aligned menu example
-    <template v-slot:menu>
+    <template #menu>
       <boot-dropdown-menu>
         <boot-dropdown-item>Action</boot-dropdown-item>
         <boot-dropdown-item>Another action</boot-dropdown-item>
@@ -667,7 +662,7 @@ Add ```bottom-end``` to the ```placement``` attribute to right align the dropdow
 ```html
 <boot-dropdown placement="bottom-end" theme="secondary">
   Right-aligned menu example
-  <template v-slot:menu>
+  <template #menu>
     <boot-dropdown-menu>
       <boot-dropdown-item>Action</boot-dropdown-item>
       <boot-dropdown-item>Another action</boot-dropdown-item>

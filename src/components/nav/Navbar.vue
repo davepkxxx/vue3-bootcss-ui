@@ -34,6 +34,7 @@ withDefaults(
   }>(),
   {
     size: 'md',
+    theme: 'light',
   },
 );
 </script>

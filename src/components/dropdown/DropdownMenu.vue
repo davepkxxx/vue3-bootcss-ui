@@ -1,9 +1,5 @@
 <template>
-  <ul
-    ref="menuEl"
-    class="dropdown-menu"
-    :class="{ 'dropdown-menu-dark': dark }"
-  >
+  <ul class="dropdown-menu" :class="{ 'dropdown-menu-dark': dark }">
     <slot/>
   </ul>
 </template>

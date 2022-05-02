@@ -27,7 +27,7 @@ export default {
 <script lang="ts" setup>
 import { onMounted, Ref, ref } from 'vue';
 import { useDataSource } from '../../utils/useData';
-import { filterChildNodes } from '../../utils/vue';
+import { filterChildNodesByType } from '../../utils/vue';
 import { TableColProps } from './model';
 import TableBody from './TableBody.vue';
 import TableHead from './TableHead.vue';
@@ -52,6 +52,6 @@ const cols: Ref<TableColProps[]> = ref([]);
 const data = useDataSource(props.dataSource);
 
 onMounted(() => {
-  cols.value = filterChildNodes('BootTableCol').map((comp) => comp.props) as unknown[] as TableColProps[];
+  cols.value = filterChildNodesByType((type) => type === 'BootTableCol').map((comp) => comp.props) as unknown[] as TableColProps[];
 });
 </script>
