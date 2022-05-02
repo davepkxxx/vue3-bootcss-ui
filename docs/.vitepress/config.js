@@ -19,7 +19,7 @@ export default defineConfig({
           text: 'Forms',
           children: [
             { text: 'Form Control', link: '/components/input' },
-            { text: 'Checks', link: '/components/check' },
+            { text: 'Checks & radios', link: '/components/check' },
           ],
         },
         {

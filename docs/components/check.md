@@ -1,25 +1,35 @@
 ---
-title: Checks
+title: Checks & radios
 ---
 
 # {{ $frontmatter.title }}
 
-Create consistent cross-browser and cross-device checkboxes with our completely rewritten checks component.
+Create consistent cross-browser and cross-device checkboxes and radios with our completely rewritten checks component.
 
 ## Checks
 
 <div class="example">
-  <div>
-    <boot-check id="flexCheckDefault" label="Default checkbox"/>
-    <boot-check id="flexCheckChecked" label="Checked checkbox" :default-value="true"/>
-  </div>
+  <boot-check-group
+    :data-source="[
+      { value: 'flexCheckDefault', label: 'Default checkbox' },
+      { value: 'flexCheckChecked', label: 'Checked checkbox' },
+    ]"
+    label-field="label"
+    value-field="value"
+    :default-value="['flexCheckChecked']"
+  />
 </div>
 
 ```html
-<div>
-  <boot-check id="flexCheckDefault" label="Default checkbox"/>
-  <boot-check id="flexCheckChecked" label="Checked checkbox" :default-value="true"/>
-</div>
+<boot-check-group
+  :data-source="[
+    { value: 'flexCheckDefault', label: 'Default checkbox' },
+    { value: 'flexCheckChecked', label: 'Checked checkbox' },
+  ]"
+  label-field="label"
+  value-field="value"
+  :default-value="['flexCheckChecked']"
+/>
 ```
 
 ## Disabled
@@ -27,17 +37,57 @@ Create consistent cross-browser and cross-device checkboxes with our completely 
 Add the ```disabled``` attribute and the associated ```<label>```s attribute is automatically styled to match with a lighter color to help indicate the input’s state.
 
 <div class="example">
-  <div>
-    <boot-check id="flexCheckDisabled" label="Disabled checkbox" disabled/>
-    <boot-check id="flexCheckCheckedDisabled" label="Disabled checked checkbox" :default-value="true" disabled/>
-  </div>
+  <boot-check-group
+    :data-source="[
+      { value: 'flexCheckDisabled', label: 'Disabled checkbox' },
+      { value: 'flexCheckCheckedDisabled', label: 'Disabled checked checkbox' },
+    ]"
+    label-field="label"
+    value-field="value"
+    :default-value="['flexCheckCheckedDisabled']"
+    disabled
+  />
 </div>
 
 ```html
-<div>
-  <boot-check id="flexCheckDisabled" label="Disabled checkbox" disabled/>
-  <boot-check id="flexCheckCheckedDisabled" label="Disabled checked checkbox" :default-value="true" disabled/>
+<boot-check-group
+  :data-source="[
+    { value: 'flexCheckDisabled', label: 'Disabled checkbox', disabled: true },
+    { value: 'flexCheckCheckedDisabled', label: 'Disabled checked checkbox', disabled: true },
+  ]"
+  disabled-field="disabled"
+  label-field="label"
+  value-field="value"
+    :default-value="['flexCheckCheckedDisabled']"
+/>
+```
+
+## Radios
+
+<div class="example">
+  <boot-check-group
+    :data-source="[
+      { value: 'flexRadioDefault1', label: 'Default radio' },
+      { value: 'flexRadioDefault2', label: 'Default checked radio' },
+    ]"
+    label-field="label"
+    value-field="value"
+    default-value="flexRadioDefault2"
+    single
+  />
 </div>
+
+```html
+<boot-check-group
+  :data-source="[
+    { value: 'flexRadioDefault1', label: 'Default radio' },
+    { value: 'flexRadioDefault2', label: 'Default checked radio' },
+  ]"
+  label-field="label"
+  value-field="value"
+  :default-value="flexRadioDefault2"
+  single
+/>
 ```
 
 ## Switches
@@ -45,21 +95,35 @@ Add the ```disabled``` attribute and the associated ```<label>```s attribute is 
 A switch has the markup of a custom checkbox but uses the ```switches``` boolean attribute to render a toggle switch. Switches also support the ```disabled``` attribute.
 
 <div class="example">
-  <div>
-    <boot-check id="flexSwitchCheckDefault" label="Default switch checkbox input" switches/>
-    <boot-check id="flexSwitchCheckChecked" label="Checked switch checkbox input" :default-value="true" switches/>
-    <boot-check id="flexSwitchCheckDisabled" label="Disabled switch checkbox input" switches disabled/>
-    <boot-check id="flexSwitchCheckCheckedDisabled" label="Disabled checked switch checkbox input" :default-value="true" switches disabled/>
-  </div>
+  <boot-check-group
+    :data-source="[
+      { value: 'flexSwitchCheckDefault', label: 'Default witch checkbox input', disabled: false },
+      { value: 'flexSwitchCheckChecked', label: 'Default switch checkbox input', disabled: false },
+      { value: 'flexSwitchCheckDisabled', label: 'Disabled switch checkbox input', disabled: true },
+      { value: 'flexSwitchCheckCheckedDisabled', label: 'Disabled checked switch checkbox input', disabled: true },
+    ]"
+    disabled-field="disabled"
+    label-field="label"
+    value-field="value"
+    :default-value="['flexSwitchCheckChecked', 'flexSwitchCheckCheckedDisabled']"
+    switches
+  />
 </div>
 
 ```html
-<div>
-  <boot-check id="flexSwitchCheckDefault" label="Default switch checkbox input" switches/>
-  <boot-check id="flexSwitchCheckChecked" label="Checked switch checkbox input" :default-value="true" switches/>
-  <boot-check id="flexSwitchCheckDisabled" label="Disabled switch checkbox input" switches disabled/>
-  <boot-check id="flexSwitchCheckCheckedDisabled" label="Disabled checked switch checkbox input" :default-value="true" switches disabled/>
-</div>
+<boot-check-group
+  :data-source="[
+    { value: 'flexSwitchCheckDefault', label: 'Default witch checkbox input', disabled: false },
+    { value: 'flexSwitchCheckChecked', label: 'Default switch checkbox input', disabled: false },
+    { value: 'flexSwitchCheckDisabled', label: 'Disabled switch checkbox input', disabled: true },
+    { value: 'flexSwitchCheckCheckedDisabled', label: 'Disabled checked switch checkbox input', disabled: true },
+  ]"
+  disabled-field="disabled"
+  label-field="label"
+  value-field="value"
+  default-value="['flexSwitchCheckChecked', 'flexSwitchCheckCheckedDisabled']"
+  switches
+/>
 ```
 
 ## Default (stacked)
@@ -92,6 +156,36 @@ By default, any number of checkboxes that are immediate sibling will be vertical
     value-field="value"
   />
 </div>
+```
+
+<div class="example">
+  <boot-check-group
+    :data-source="[
+      { value: 'exampleRadios1', label: 'Default radio', disabled: false },
+      { value: 'exampleRadios2', label: 'Second default radio', disabled: false },
+      { value: 'exampleRadios3', label: 'Disabled radio', disabled: true },
+    ]"
+    disabled-field="disabled"
+    label-field="label"
+    value-field="value"
+    default-value="exampleRadios1"
+    single
+  />
+</div>
+
+```html
+<boot-check-group
+  :data-source="[
+    { value: 'exampleRadios1', label: 'Default radio', disabled: false },
+    { value: 'exampleRadios2', label: 'Second default radio', disabled: false },
+    { value: 'exampleRadios3', label: 'Disabled radio', disabled: true },
+  ]"
+  disabled-field="disabled"
+  label-field="label"
+  value-field="value"
+  default-value="exampleRadios1"
+  single
+/>
 ```
 
 ## Inline
@@ -130,12 +224,44 @@ Group checkboxes on the same horizontal row by adding ```inline``` boolean attri
 </div>
 ```
 
+<div class="example">
+  <boot-check-group
+    :data-source="[
+      { value: 'inlineCheckbox1', label: '1', disabled: false },
+      { value: 'inlineCheckbox2', label: '2', disabled: false },
+      { value: 'inlineCheckbox3', label: '3 (disabled)', disabled: true },
+    ]"
+    disabled-field="disabled"
+    label-field="label"
+    value-field="value"
+    single
+    inline
+  />
+</div>
+
+```html
+<boot-check-group
+  :data-source="[
+    { value: 'inlineCheckbox1', label: '1', disabled: false },
+    { value: 'inlineCheckbox2', label: '2', disabled: false },
+    { value: 'inlineCheckbox3', label: '3 (disabled)', disabled: true },
+  ]"
+  disabled-field="disabled"
+  label-field="label"
+  value-field="value"
+  single
+  inline
+/>
+```
+
 ## Without labels
 
 <div class="example">
   <boot-check id="checkboxNoLabel"/>
+  <boot-check id="radioNoLabel1" single/>
 </div>
 
 ```html
 <boot-check id="checkboxNoLabel"/>
+<boot-check id="radioNoLabel1" single/>
 ```

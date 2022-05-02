@@ -1,13 +1,14 @@
 <template>
   <Check
     v-for="item in data"
-    :key="valueField == null ? item : item[valueField]"
-    :model-value="value && value.some(e => e === (valueField == null ? item : item[valueField]))"
-    :disabled="disabled || (disabledField && item[disabledField])"
+    :key="getItemValue(item, valueField)"
+    :model-value="isOrContain(value, getItemValue(item, valueField))"
+    :single="single"
+    :disabled="disabled || (disabledField == null ? undefined : item[disabledField])"
     :switches="switches"
     :inline="inline"
-    :label="labelField == null ? item : item[labelField]"
-    @update:model-value="(checked) => onCheck(checked as boolean, item)"
+    :label="getItemValue(item, labelField)"
+    @update:model-value="(checked) => onCheck(checked as boolean, getItemValue(item, valueField))"
   />
 </template>
 <script lang="ts">
@@ -16,41 +17,46 @@ export default {
 };
 </script>
 <script lang="ts" setup>
-import { useDataSource, useValue } from 'src/utils/useData';
 import { Ref, unref } from 'vue';
+import { isOrContain } from '../../utils/comparison';
+import { useDataSource, useItemValue, useValue } from '../../utils/useData';
 import Check from './Check.vue';
 
 const props = withDefaults(
   defineProps<{
-    modelValue?: any[];
+    modelValue?: any;
+    defaultValue?: any;
     dataSource?: any[] | Promise<any[]>;
     disabledField?: string;
     labelField?: string;
     valueField?: string;
+    single?: boolean;
     disabled?: boolean;
     switches?: boolean;
     inline?: boolean;
   }>(),
   {
-    modelValue: () => [],
     dataSource: () => [],
   },
 );
 
 const emit = defineEmits<{
-  (e: 'update:modelValue', modelValue?: any[]): void;
+  (e: 'update:modelValue', modelValue?: any): void;
 }>();
 
-const value = useValue(props, emit);
+const value = useValue(props, emit, props.defaultValue);
 const data: Ref<any[]> = useDataSource(props.dataSource, []);
+const getItemValue = useItemValue();
 
-function onCheck(checked: boolean, dataItem: any) {
-  const dataValue = props.valueField == null ? dataItem : dataItem[props.valueField];
-  if (checked) {
-    unref(value).push(dataValue);
+function onCheck(checked: boolean, itemValue: any) {
+  const oldValue = unref(value);
+  if (props.single) {
+    value.value = checked ? itemValue : ((oldValue === itemValue) ? undefined : oldValue);
   } else {
-    const start = unref(value).findIndex((valueItem) => valueItem === dataValue);
-    unref(value).splice(start, 1);
+    const arr = (oldValue || []) as any[];
+    const index = arr.findIndex((item) => item === itemValue);
+    checked ? arr.push(itemValue) : arr.splice(index, 1);
+    value.value = arr;
   }
 }
 </script>

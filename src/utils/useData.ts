@@ -32,6 +32,12 @@ export function useDataSource<T>(dataSource: T | Promise<T>, defaultValue?: T) {
   return data;
 }
 
+export function useItemValue() {
+  return function(item: any, field?: string | null) {
+    return field == null ? item : item[field];
+  };
+}
+
 export type TemplateRef = Ref<Element | ComponentPublicInstance | undefined>;
 export type popperOptions = Partial<OptionsGeneric<Partial<Modifier<any, any>>>>;
 

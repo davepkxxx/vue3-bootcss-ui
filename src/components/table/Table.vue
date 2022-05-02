@@ -32,21 +32,26 @@ import { TableColProps } from './model';
 import TableBody from './TableBody.vue';
 import TableHead from './TableHead.vue';
 
-const props = defineProps<{
-  dataSource?: any[] | Promise<any[]>;
-  responsive?: boolean;
-  striped?: boolean;
-  hover?: boolean;
-  bordered?: boolean;
-  borderless?: boolean;
-  borderTheme?: string;
-  theme?: string;
-  headTheme?: string;
-  rowThemeField?: string;
-  size?: string;
-  caption?: string;
-  captionTop?: boolean;
-}>();
+const props = withDefaults(
+  defineProps<{
+    dataSource?: any[] | Promise<any[]>;
+    responsive?: boolean;
+    striped?: boolean;
+    hover?: boolean;
+    bordered?: boolean;
+    borderless?: boolean;
+    borderTheme?: string;
+    theme?: string;
+    headTheme?: string;
+    rowThemeField?: string;
+    size?: string;
+    caption?: string;
+    captionTop?: boolean;
+  }>(),
+  {
+    dataSource: () => [],
+  },
+);
 
 const cols: Ref<TableColProps[]> = ref([]);
 const data = useDataSource(props.dataSource);

@@ -5,6 +5,7 @@
       :checked="checked === trueValue"
       :disabled="disabled"
       class="form-check-input"
+      :class="{ single }"
       v-bind="{ role: switches ? 'switch' : undefined }"
       @change="onChange"
     >
@@ -25,6 +26,7 @@ const props = withDefaults(
     defaultValue?: any;
     trueValue?: any;
     falseValue?: any;
+    single?: boolean;
     label?: any;
     disabled?: boolean;
     switches?: boolean;
@@ -49,3 +51,11 @@ function onChange(event: Event) {
   }
 }
 </script>
+<style>
+.form-check-input.single[type=checkbox] {
+    border-radius: 50%;
+}
+.form-check-input.single:checked[type=checkbox] {
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='2' fill='%23fff'/></svg>");
+}
+</style>
