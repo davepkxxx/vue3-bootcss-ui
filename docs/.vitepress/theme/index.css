@@ -1,0 +1,28 @@
+@import "./github-markdown.css";
+
+.markdown-body>table,
+.markdown-body>*:not(.example) table {
+  display: table;
+  width: 100%;
+}
+
+.markdown-body>table>:not(:first-child),
+.markdown-body>*:not(.example) table>:not(:first-child) {
+  border-top: 2px solid currentColor;
+}
+
+.markdown-body>table th,
+.markdown-body>table td,
+.markdown-body>*:not(.example) table th,
+.markdown-body>*:not(.example) table td {
+  padding: 0.5rem 0.5rem;
+  border-width: 0 0 1px 0;
+  box-shadow: inset 0 0 0 9999px var(--bs-table-accent-bg);
+}
+
+.markdown-body>td,
+.markdown-body>th,
+.markdown-body>*:not(.example) td,
+.markdown-body>*:not(.example) th {
+  padding: 0.5rem 0.5rem;
+}

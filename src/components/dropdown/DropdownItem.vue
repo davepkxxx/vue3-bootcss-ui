@@ -2,15 +2,13 @@
   <li>
     <component
       :is="link ? 'a' : 'button'"
+      :type="link ? undefined : 'button'"
+      :href="link"
       class="dropdown-item"
       :class="{ active, disabled }"
-      v-bind="{
-        href: link,
-        type: link ? undefined : 'button',
-        'aria-current': active ? 'true' : undefined,
-        'aria-disabled': disabled ? 'true' : undefined,
-        'tabindex': link && disabled ? '-1' : tabindex,
-      }"
+      :aria-current="active ? 'true' : undefined"
+      :aria-disabled="disabled ? 'true' : undefined"
+      :tabindex="link && disabled ? '-1' : tabindex"
     >
       <slot/>
     </component>

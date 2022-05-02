@@ -5,10 +5,12 @@
     :type="radio ? 'radio' : 'checkbox'"
     class="btn-check"
     :checked="checked"
-    v-bind="{ name: radio }"
+    :name="radio"
   >
   <component
     :is="link ? 'a' : 'button'"
+    :type="link ? undefined : type"
+    :href="link"
     :disabled="disabled"
     class="btn"
     :class="[
@@ -17,14 +19,10 @@
       link && disabled ? 'disabled' : '',
       link && active ? 'active' : '',
     ]"
-    v-bind="{
-      type: link ? undefined : type,
-      href: link,
-      'aria-current': active ? 'true' : undefined,
-      'aria-disabled': disabled ? 'true' : undefined,
-      'tabindex': link && disabled ? '-1' : tabindex,
-      ...$attrs,
-    }"
+    :aria-current="active ? 'true' : undefined"
+    :aria-disabled="disabled ? 'true' : undefined"
+    :tabindex="link && disabled ? '-1' : tabindex"
+    v-bind="$attrs"
     @click="onButtonClick"
   >
     <slot/>

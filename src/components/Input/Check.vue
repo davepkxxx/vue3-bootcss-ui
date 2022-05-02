@@ -6,7 +6,7 @@
       :disabled="disabled"
       class="form-check-input"
       :class="{ single }"
-      v-bind="{ role: switches ? 'switch' : undefined }"
+      :role="switches ? 'switch' : undefined"
       @change="onChange"
     >
     <label v-if="label" class="form-check-label">{{ label }}</label>

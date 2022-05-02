@@ -21,6 +21,7 @@ import NavItem from './components/nav/NavItem.vue';
 import NavItemDropdown from './components/nav/NavItemDropdown.vue';
 import NavLogo from './components/nav/NavLogo.vue';
 import Popper from './components/popper/Popper.vue';
+import Select from './components/select/Select.vue';
 import Table from './components/table/Table.vue';
 import TableBody from './components/table/TableBody.vue';
 import TableCol from './components/table/TableCol.vue';
@@ -49,6 +50,7 @@ export {
   NavItemDropdown,
   NavLogo,
   Popper,
+  Select,
   Table,
   TableBody,
   TableCol,
@@ -80,6 +82,7 @@ export default {
       NavItemDropdown,
       NavLogo,
       Popper,
+      Select,
       Table,
       TableBody,
       TableCol,

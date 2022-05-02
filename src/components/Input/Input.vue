@@ -10,9 +10,7 @@
       plaintext ? 'form-control-plaintext' : 'form-control',
       size ? `form-control-${size}` : '',
     ]"
-    v-bind="{
-      'aria-disabled': disabled ? 'true' : undefined,
-    }"
+    :aria-disabled="disabled ? 'true' : undefined"
   >
 </template>
 <script lang="ts">

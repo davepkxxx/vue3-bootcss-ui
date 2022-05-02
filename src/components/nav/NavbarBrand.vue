@@ -1,8 +1,8 @@
 <template>
   <component
     :is="link ? 'a' : 'span'"
+    :href="link"
     class="navbar-brand"
-    v-bind="{ href: link }"
   >
     <slot/>
   </component>
