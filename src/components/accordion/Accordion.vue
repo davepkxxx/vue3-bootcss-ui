@@ -11,7 +11,7 @@ export default {
 <script lang="ts" setup>
 import { provide, toRefs } from 'vue';
 import { activeNamesKey, multiKey } from './model';
-import { useSync } from '../../utils/useData';
+import { useSync } from '../../utils/use';
 
 const props = withDefaults(
   defineProps<{

@@ -23,13 +23,13 @@ export default {
 </script>
 <script lang="ts" setup>
 import { isNumber } from '../../utils/math';
-import { useDataSource, useItemValue, useValue } from '../../utils/useData';
+import { DataSource, useDataSource, useItemValue, useValue } from '../../utils/use';
 
 const props = withDefaults(
   defineProps<{
     modelValue?: any;
     defaultValue?: any;
-    dataSource?: any[] | Promise<any[]>;
+    dataSource?: DataSource<any[]>;
     labelField?: string;
     valueField?: string;
     multiple?: boolean;
@@ -46,7 +46,7 @@ const emit = defineEmits<{
 }>();
 
 const value = useValue(props, emit, props.defaultValue);
-const data = useDataSource(props.dataSource);
+const data = useDataSource<any[]>(props.dataSource);
 const getItemValue = useItemValue();
 
 defineExpose({

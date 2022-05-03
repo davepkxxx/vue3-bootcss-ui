@@ -19,7 +19,7 @@ export default {
 };
 </script>
 <script lang="ts" setup>
-import { useSync } from '../../utils/useData';
+import { useValue } from '../../utils/use';
 
 const props = withDefaults(
   defineProps<{
@@ -41,5 +41,5 @@ const emit = defineEmits<{
   (e: 'update:modelValue', modelValue: number | string): void;
 }>();
 
-const value = useSync('modelValue', props, emit);
+const value = useValue(props, emit);
 </script>

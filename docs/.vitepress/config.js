@@ -31,7 +31,7 @@ export default defineConfig({
             { text: 'Button Group', link: '/components/button-group' },
             { text: 'Dropdowns', link: '/components/dropdown' },
             { text: 'List Group', link: '/components/list' },
-            { text: 'Navbar', link: '/components/nav' },
+            { text: 'Navbar', link: '/components/navbar' },
           ],
         },
       ],

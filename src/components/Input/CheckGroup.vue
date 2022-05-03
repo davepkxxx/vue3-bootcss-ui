@@ -17,16 +17,16 @@ export default {
 };
 </script>
 <script lang="ts" setup>
-import { Ref, unref } from 'vue';
+import { unref } from 'vue';
 import { isOrContain } from '../../utils/comparison';
-import { useDataSource, useItemValue, useValue } from '../../utils/useData';
+import { DataSource, useDataSource, useItemValue, useValue } from '../../utils/use';
 import Check from './Check.vue';
 
 const props = withDefaults(
   defineProps<{
     modelValue?: any;
     defaultValue?: any;
-    dataSource?: any[] | Promise<any[]>;
+    dataSource?: DataSource<any[]>;
     disabledField?: string;
     labelField?: string;
     valueField?: string;
@@ -45,7 +45,7 @@ const emit = defineEmits<{
 }>();
 
 const value = useValue(props, emit, props.defaultValue);
-const data: Ref<any[]> = useDataSource(props.dataSource, []);
+const data = useDataSource<any[]>(props.dataSource, []);
 const getItemValue = useItemValue();
 
 function onCheck(checked: boolean, itemValue: any) {

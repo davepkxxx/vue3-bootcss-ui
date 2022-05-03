@@ -16,10 +16,11 @@
     :class="[
       theme ? `btn${outline ? '-outline' : ''}-${theme}` : '',
       size ? `btn-${size}` : '',
-      link && disabled ? 'disabled' : '',
-      link && active ? 'active' : '',
+      disabled ? 'disabled' : '',
+      active ? 'active' : '',
     ]"
-    :aria-current="active ? 'true' : undefined"
+    :aria-pressed="!link && active ? 'true' : undefined"
+    :aria-current="link && active ? 'true' : undefined"
     :aria-disabled="disabled ? 'true' : undefined"
     :tabindex="link && disabled ? '-1' : tabindex"
     v-bind="$attrs"

@@ -13,7 +13,7 @@ export default {
 <script lang="ts" setup>
 import { Modifier, OptionsGeneric } from '@popperjs/core';
 import { ComponentPublicInstance, toRefs } from 'vue';
-import { usePopper } from '../../utils/useData';
+import { usePopper } from '../../utils/use';
 
 const props = defineProps<{
   popped?: boolean;

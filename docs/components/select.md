@@ -204,7 +204,7 @@ Add the ```disabled``` boolean attribute on a select to give it a grayed out app
 />
 ```
 
-## API
+## ```<boot-select>``` API
 
 ### ```<boot-select>``` Props
 

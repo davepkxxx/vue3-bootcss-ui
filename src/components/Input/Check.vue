@@ -18,7 +18,7 @@ export default {
 };
 </script>
 <script lang="ts" setup>
-import { useValue } from '../../utils/useData';
+import { useValue } from '../../utils/use';
 
 const props = withDefaults(
   defineProps<{
